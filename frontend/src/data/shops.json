@@ -1,0 +1,716 @@
+[
+  {
+    "id": 1,
+    "name": "Shop from Crisis, Brick Lane",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:30 AM – 6:30 PM",
+      "tuesday": "10:30 AM – 6:30 PM",
+      "wednesday": "10:30 AM – 6:30 PM",
+      "thursday": "10:30 AM – 6:30 PM",
+      "friday": "10:30 AM – 6:30 PM",
+      "saturday": "10:30 AM – 6:30 PM",
+      "sunday": "12:00 PM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5221162,
+      "longitude": -0.0718299
+    },
+    "address": "78 Quaker St, London E1 6SW",
+    "neighbourhood": "Brick Lane",
+    "city": "London"
+  },
+  {
+    "id": 2,
+    "name": "Rokit Brick Lane",
+    "type": "Vintage Store",
+    "opening_hours": {
+      "monday": "11:00 AM – 7:00 PM",
+      "tuesday": "11:00 AM – 7:00 PM",
+      "wednesday": "11:00 AM – 7:00 PM",
+      "thursday": "11:00 AM – 7:00 PM",
+      "friday": "11:00 AM – 7:00 PM",
+      "saturday": "11:00 AM – 7:30 PM",
+      "sunday": "11:00 AM – 6:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5222676,
+      "longitude": -0.0717273
+    },
+    "address": "101 Brick Ln, London E1 6SE",
+    "neighbourhood": "Brick Lane",
+    "city": "London"
+  },
+  {
+    "id": 3,
+    "name": "The Brick Lane Vintage Market",
+    "type": "Vintage Market",
+    "opening_hours": {
+      "monday": "11:00 AM – 6:30 PM",
+      "tuesday": "11:00 AM – 6:30 PM",
+      "wednesday": "11:00 AM – 6:30 PM",
+      "thursday": "11:00 AM – 6:30 PM",
+      "friday": "11:00 AM – 6:30 PM",
+      "saturday": "11:00 AM – 6:00 PM",
+      "sunday": "10:00 AM – 6:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5207958,
+      "longitude": -0.0720977
+    },
+    "address": "85 Brick Ln, London E1 6QL",
+    "neighbourhood": "Brick Lane",
+    "city": "London"
+  },
+  {
+    "id": 4,
+    "name": "Non Stop Vintage",
+    "type": "Vintage Store",
+    "opening_hours": {
+      "monday": "11:00 AM – 7:00 PM",
+      "tuesday": "11:00 AM – 7:00 PM",
+      "wednesday": "11:00 AM – 7:00 PM",
+      "thursday": "11:00 AM – 7:00 PM",
+      "friday": "11:00 AM – 7:00 PM",
+      "saturday": "11:00 AM – 7:00 PM",
+      "sunday": "11:00 AM – 7:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.523884,
+      "longitude": -0.0716343
+    },
+    "address": "137 Brick Ln, London E1 6SB",
+    "neighbourhood": "Brick Lane",
+    "city": "London"
+  },
+  {
+    "id": 5,
+    "name": "Brick Lane Vintage",
+    "type": "Vintage Store",
+    "opening_hours": {
+      "monday": "11:00 AM – 7:00 PM",
+      "tuesday": "11:00 AM – 7:00 PM",
+      "wednesday": "11:00 AM – 7:00 PM",
+      "thursday": "11:00 AM – 7:00 PM",
+      "friday": "11:00 AM – 7:00 PM",
+      "saturday": "11:00 AM – 7:00 PM",
+      "sunday": "11:00 AM – 7:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5235489,
+      "longitude": -0.0713026
+    },
+    "address": "182 Brick Ln, London E1 6SA",
+    "neighbourhood": "Brick Lane",
+    "city": "London"
+  },
+  {
+    "id": 6,
+    "name": "Thrifted @ Brick Lane",
+    "type": "Vintage / Thrift Store",
+    "opening_hours": {
+      "monday": "8:30 AM – 4:30 PM",
+      "tuesday": "8:30 AM – 4:30 PM",
+      "wednesday": "8:30 AM – 4:30 PM",
+      "thursday": "8:30 AM – 4:30 PM",
+      "friday": "8:30 AM – 4:30 PM",
+      "saturday": "Closed",
+      "sunday": "Closed"
+    },
+    "coordinates": {
+      "latitude": 51.520781,
+      "longitude": -0.0719501
+    },
+    "address": "Unit 30, Vintage Market, 85 Brick Ln, London E1 6QL",
+    "neighbourhood": "Brick Lane",
+    "city": "London"
+  },
+  {
+    "id": 7,
+    "name": "Spitalfields Crypt Trust",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 6:00 PM",
+      "tuesday": "10:00 AM – 6:00 PM",
+      "wednesday": "10:00 AM – 6:00 PM",
+      "thursday": "10:00 AM – 6:00 PM",
+      "friday": "10:00 AM – 6:00 PM",
+      "saturday": "10:00 AM – 6:00 PM",
+      "sunday": "Closed"
+    },
+    "coordinates": {
+      "latitude": 51.5166254,
+      "longitude": -0.0688211
+    },
+    "address": "27 Whitechapel Rd, London E1 1DU",
+    "neighbourhood": "Whitechapel",
+    "city": "London"
+  },
+  {
+    "id": 8,
+    "name": "ATIKA London",
+    "type": "Vintage Store",
+    "opening_hours": {
+      "monday": "11:00 AM – 7:00 PM",
+      "tuesday": "11:00 AM – 7:00 PM",
+      "wednesday": "11:00 AM – 7:00 PM",
+      "thursday": "11:00 AM – 7:00 PM",
+      "friday": "11:00 AM – 7:00 PM",
+      "saturday": "11:00 AM – 7:00 PM",
+      "sunday": "12:00 PM – 6:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5203795,
+      "longitude": -0.0709101
+    },
+    "address": "55–59 Hanbury St, London E1 5JP",
+    "neighbourhood": "Spitalfields",
+    "city": "London"
+  },
+  {
+    "id": 9,
+    "name": "Vintage Basement",
+    "type": "Vintage Store",
+    "opening_hours": {
+      "monday": "11:00 AM – 7:00 PM",
+      "tuesday": "11:00 AM – 7:00 PM",
+      "wednesday": "11:00 AM – 7:00 PM",
+      "thursday": "11:00 AM – 7:00 PM",
+      "friday": "11:00 AM – 7:00 PM",
+      "saturday": "11:00 AM – 7:00 PM",
+      "sunday": "11:00 AM – 7:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.523567,
+      "longitude": -0.070952
+    },
+    "address": "7 Cheshire St, London E2 6ED",
+    "neighbourhood": "Brick Lane",
+    "city": "London"
+  },
+  {
+    "id": 10,
+    "name": "Hunky Dory Vintage",
+    "type": "Vintage Store",
+    "opening_hours": {
+      "monday": "11:30 AM – 6:30 PM",
+      "tuesday": "11:30 AM – 6:30 PM",
+      "wednesday": "11:30 AM – 6:30 PM",
+      "thursday": "11:30 AM – 6:30 PM",
+      "friday": "11:30 AM – 6:30 PM",
+      "saturday": "11:30 AM – 6:30 PM",
+      "sunday": "11:30 AM – 6:30 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5247389,
+      "longitude": -0.0714222
+    },
+    "address": "226 Brick Ln, London E1 6SA",
+    "neighbourhood": "Brick Lane",
+    "city": "London"
+  },
+  {
+    "id": 11,
+    "name": "@Hot Vintage",
+    "type": "Vintage Store",
+    "opening_hours": {
+      "monday": "11:00 AM – 7:30 PM",
+      "tuesday": "11:00 AM – 7:30 PM",
+      "wednesday": "11:00 AM – 7:30 PM",
+      "thursday": "11:00 AM – 7:30 PM",
+      "friday": "11:00 AM – 7:30 PM",
+      "saturday": "10:30 AM – 8:00 PM",
+      "sunday": "10:30 AM – 8:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5230847,
+      "longitude": -0.071429
+    },
+    "address": "176c Brick Ln, London E1 6SA",
+    "neighbourhood": "Brick Lane",
+    "city": "London"
+  },
+  {
+    "id": 12,
+    "name": "Y2K Vintage",
+    "type": "Vintage Store",
+    "opening_hours": {
+      "monday": "11:00 AM – 8:00 PM",
+      "tuesday": "11:00 AM – 8:00 PM",
+      "wednesday": "11:00 AM – 8:00 PM",
+      "thursday": "11:00 AM – 8:00 PM",
+      "friday": "11:00 AM – 8:00 PM",
+      "saturday": "11:00 AM – 8:00 PM",
+      "sunday": "11:00 AM – 8:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5244192,
+      "longitude": -0.0714982
+    },
+    "address": "214 Brick Ln, London E1 6SA",
+    "neighbourhood": "Brick Lane",
+    "city": "London"
+  },
+  {
+    "id": 13,
+    "name": "Levisons Vintage Clothing",
+    "type": "Vintage Store",
+    "opening_hours": {
+      "monday": "11:00 AM – 6:30 PM",
+      "tuesday": "11:00 AM – 6:30 PM",
+      "wednesday": "11:00 AM – 6:30 PM",
+      "thursday": "11:00 AM – 6:30 PM",
+      "friday": "11:00 AM – 6:30 PM",
+      "saturday": "11:00 AM – 6:30 PM",
+      "sunday": "10:30 AM – 5:30 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5235451,
+      "longitude": -0.0711424
+    },
+    "address": "1 Cheshire St, London E2 6ED",
+    "neighbourhood": "Brick Lane",
+    "city": "London"
+  },
+  {
+    "id": 14,
+    "name": "Mind Charity Shop – Kentish Town West",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 6:00 PM",
+      "tuesday": "10:00 AM – 6:00 PM",
+      "wednesday": "10:00 AM – 6:00 PM",
+      "thursday": "10:00 AM – 6:00 PM",
+      "friday": "10:00 AM – 6:00 PM",
+      "saturday": "10:00 AM – 6:00 PM",
+      "sunday": "11:00 AM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5467483,
+      "longitude": -0.141923
+    },
+    "address": "193 Kentish Town Rd, London NW5 2JU",
+    "neighbourhood": "Kentish Town",
+    "city": "London"
+  },
+  {
+    "id": 15,
+    "name": "Blustons – Octavia Foundation",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 6:00 PM",
+      "tuesday": "10:00 AM – 6:00 PM",
+      "wednesday": "10:00 AM – 6:00 PM",
+      "thursday": "10:00 AM – 6:00 PM",
+      "friday": "10:00 AM – 6:00 PM",
+      "saturday": "10:00 AM – 6:00 PM",
+      "sunday": "11:00 AM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5473882,
+      "longitude": -0.141723
+    },
+    "address": "213–215 Kentish Town Rd, London NW5 2JU",
+    "neighbourhood": "Kentish Town",
+    "city": "London"
+  },
+  {
+    "id": 16,
+    "name": "Age UK – Kentish Town",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "9:00 AM – 5:00 PM",
+      "tuesday": "9:00 AM – 5:00 PM",
+      "wednesday": "9:00 AM – 5:00 PM",
+      "thursday": "9:00 AM – 5:00 PM",
+      "friday": "9:00 AM – 5:00 PM",
+      "saturday": "9:00 AM – 5:00 PM",
+      "sunday": "10:00 AM – 4:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5482784,
+      "longitude": -0.1414664
+    },
+    "address": "247 Kentish Town Rd, London NW5 2JT",
+    "neighbourhood": "Kentish Town",
+    "city": "London"
+  },
+  {
+    "id": 17,
+    "name": "British Heart Foundation – Kentish Town",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 6:00 PM",
+      "tuesday": "10:00 AM – 6:00 PM",
+      "wednesday": "10:00 AM – 6:00 PM",
+      "thursday": "10:00 AM – 6:00 PM",
+      "friday": "10:00 AM – 6:00 PM",
+      "saturday": "10:00 AM – 6:00 PM",
+      "sunday": "11:00 AM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5479144,
+      "longitude": -0.1416239
+    },
+    "address": "233 Kentish Town Rd, London NW5 2NB",
+    "neighbourhood": "Kentish Town",
+    "city": "London"
+  },
+  {
+    "id": 18,
+    "name": "Kentish Town PDSA Charity Shop",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 5:00 PM",
+      "tuesday": "10:00 AM – 5:00 PM",
+      "wednesday": "10:00 AM – 5:00 PM",
+      "thursday": "10:00 AM – 5:00 PM",
+      "friday": "10:00 AM – 5:00 PM",
+      "saturday": "10:00 AM – 5:00 PM",
+      "sunday": "11:00 AM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5483345,
+      "longitude": -0.1414467
+    },
+    "address": "249 Kentish Town Rd, London NW5 2JT",
+    "neighbourhood": "Kentish Town",
+    "city": "London"
+  },
+  {
+    "id": 19,
+    "name": "Mind London – Kentish Town",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "9:30 AM – 5:30 PM",
+      "tuesday": "9:30 AM – 5:30 PM",
+      "wednesday": "9:30 AM – 5:30 PM",
+      "thursday": "9:30 AM – 5:30 PM",
+      "friday": "9:30 AM – 5:30 PM",
+      "saturday": "9:30 AM – 5:30 PM",
+      "sunday": "11:00 AM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5485027,
+      "longitude": -0.1413075
+    },
+    "address": "257 Kentish Town Rd, London NW5 2XL",
+    "neighbourhood": "Kentish Town",
+    "city": "London"
+  },
+  {
+    "id": 20,
+    "name": "Oxfam Books & Music – Kentish Town",
+    "type": "Charity Shop (Books & Music)",
+    "opening_hours": {
+      "monday": "9:30 AM – 5:30 PM",
+      "tuesday": "9:30 AM – 5:30 PM",
+      "wednesday": "9:30 AM – 5:30 PM",
+      "thursday": "9:30 AM – 5:30 PM",
+      "friday": "9:30 AM – 5:30 PM",
+      "saturday": "9:30 AM – 4:30 PM",
+      "sunday": "12:00 PM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5469888,
+      "longitude": -0.1414992
+    },
+    "address": "166 Kentish Town Rd, London NW5 2AG",
+    "neighbourhood": "Kentish Town",
+    "city": "London"
+  },
+  {
+    "id": 21,
+    "name": "SK.Vintage",
+    "type": "Vintage Store",
+    "opening_hours": {
+      "monday": "Closed",
+      "tuesday": "10:30 AM – 6:30 PM",
+      "wednesday": "10:30 AM – 6:30 PM",
+      "thursday": "10:30 AM – 6:30 PM",
+      "friday": "10:30 AM – 6:30 PM",
+      "saturday": "10:30 AM – 6:30 PM",
+      "sunday": "Closed"
+    },
+    "coordinates": {
+      "latitude": 51.553999,
+      "longitude": -0.140715
+    },
+    "address": "51 Fortess Rd, London NW5 2HH",
+    "neighbourhood": "Kentish Town",
+    "city": "London"
+  },
+  {
+    "id": 22,
+    "name": "Cancer Research UK – Ealing",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "9:30 AM – 6:00 PM",
+      "tuesday": "9:30 AM – 6:00 PM",
+      "wednesday": "9:30 AM – 6:00 PM",
+      "thursday": "9:30 AM – 6:00 PM",
+      "friday": "9:30 AM – 6:00 PM",
+      "saturday": "9:30 AM – 6:00 PM",
+      "sunday": "10:00 AM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.513859,
+      "longitude": -0.3012858
+    },
+    "address": "66 The Mall, London W5 5LS",
+    "neighbourhood": "Ealing",
+    "city": "London"
+  },
+  {
+    "id": 23,
+    "name": "Fight for Sight Ealing Broadway Charity Shop",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 5:00 PM",
+      "tuesday": "10:00 AM – 5:00 PM",
+      "wednesday": "10:00 AM – 5:00 PM",
+      "thursday": "10:00 AM – 5:00 PM",
+      "friday": "10:00 AM – 5:00 PM",
+      "saturday": "10:00 AM – 5:00 PM",
+      "sunday": "11:00 AM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5136827,
+      "longitude": -0.3033381
+    },
+    "address": "12 The Broadway, London W5 2NH",
+    "neighbourhood": "Ealing",
+    "city": "London"
+  },
+  {
+    "id": 24,
+    "name": "Shop from Crisis – Ealing",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 6:00 PM",
+      "tuesday": "10:00 AM – 6:00 PM",
+      "wednesday": "10:00 AM – 6:00 PM",
+      "thursday": "10:00 AM – 6:00 PM",
+      "friday": "10:00 AM – 6:00 PM",
+      "saturday": "10:00 AM – 6:00 PM",
+      "sunday": "11:00 AM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5142843,
+      "longitude": -0.3008407
+    },
+    "address": "5 The Mall, London W5 2PJ",
+    "neighbourhood": "Ealing",
+    "city": "London"
+  },
+  {
+    "id": 25,
+    "name": "Mary's Living & Giving Shop for Save the Children – Ealing Green",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "12:00 PM – 4:00 PM",
+      "tuesday": "10:00 AM – 5:00 PM",
+      "wednesday": "10:00 AM – 5:00 PM",
+      "thursday": "10:00 AM – 5:00 PM",
+      "friday": "10:00 AM – 5:00 PM",
+      "saturday": "10:00 AM – 5:00 PM",
+      "sunday": "12:00 PM – 4:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5115617,
+      "longitude": -0.3049057
+    },
+    "address": "2 The Green, London W5 5DA",
+    "neighbourhood": "Ealing Green",
+    "city": "London"
+  },
+  {
+    "id": 26,
+    "name": "RSPCA Charity Shop – Ealing",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 5:00 PM",
+      "tuesday": "10:00 AM – 5:00 PM",
+      "wednesday": "10:00 AM – 5:00 PM",
+      "thursday": "10:00 AM – 5:00 PM",
+      "friday": "10:00 AM – 5:00 PM",
+      "saturday": "10:00 AM – 5:00 PM",
+      "sunday": "11:00 AM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5118964,
+      "longitude": -0.3050006
+    },
+    "address": "27 High St, London W5 5DB",
+    "neighbourhood": "Ealing Green",
+    "city": "London"
+  },
+  {
+    "id": 27,
+    "name": "Octavia Foundation – Ealing",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 6:00 PM",
+      "tuesday": "10:00 AM – 6:00 PM",
+      "wednesday": "10:00 AM – 6:00 PM",
+      "thursday": "10:00 AM – 6:00 PM",
+      "friday": "10:00 AM – 6:00 PM",
+      "saturday": "10:00 AM – 6:00 PM",
+      "sunday": "11:00 AM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5125939,
+      "longitude": -0.3047341
+    },
+    "address": "40 High St, London W5 5DB",
+    "neighbourhood": "Ealing Green",
+    "city": "London"
+  },
+  {
+    "id": 28,
+    "name": "BHF Ealing Furniture & Electrical Store",
+    "type": "Charity Shop (Furniture & Electrical)",
+    "opening_hours": {
+      "monday": "9:30 AM – 6:00 PM",
+      "tuesday": "9:30 AM – 6:00 PM",
+      "wednesday": "9:30 AM – 6:00 PM",
+      "thursday": "9:30 AM – 6:00 PM",
+      "friday": "9:30 AM – 6:00 PM",
+      "saturday": "9:30 AM – 6:00 PM",
+      "sunday": "11:00 AM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5103545,
+      "longitude": -0.3223618
+    },
+    "address": "13 Broadway, London W13 9DA",
+    "neighbourhood": "West Ealing",
+    "city": "London"
+  },
+  {
+    "id": 29,
+    "name": "Alice's Attic",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "9:30 AM – 5:00 PM",
+      "tuesday": "9:30 AM – 5:00 PM",
+      "wednesday": "9:30 AM – 5:00 PM",
+      "thursday": "9:30 AM – 5:00 PM",
+      "friday": "9:30 AM – 5:00 PM",
+      "saturday": "9:30 AM – 5:00 PM",
+      "sunday": "11:00 AM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5105623,
+      "longitude": -0.3227306
+    },
+    "address": "64a The Broadway, London W13 0SU",
+    "neighbourhood": "West Ealing",
+    "city": "London"
+  },
+  {
+    "id": 30,
+    "name": "Families Relief",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "9:30 AM – 5:00 PM",
+      "tuesday": "9:30 AM – 5:00 PM",
+      "wednesday": "9:30 AM – 5:00 PM",
+      "thursday": "9:30 AM – 5:00 PM",
+      "friday": "9:30 AM – 5:00 PM",
+      "saturday": "9:30 AM – 5:00 PM",
+      "sunday": "Closed"
+    },
+    "coordinates": {
+      "latitude": 51.5097876,
+      "longitude": -0.3257972
+    },
+    "address": "93 Broadway, London W13 9BP",
+    "neighbourhood": "West Ealing",
+    "city": "London"
+  },
+  {
+    "id": 31,
+    "name": "British Heart Foundation – West Ealing",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "9:30 AM – 5:30 PM",
+      "tuesday": "9:30 AM – 5:30 PM",
+      "wednesday": "9:30 AM – 5:30 PM",
+      "thursday": "9:30 AM – 5:30 PM",
+      "friday": "9:30 AM – 5:30 PM",
+      "saturday": "9:30 AM – 5:30 PM",
+      "sunday": "11:00 AM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5100155,
+      "longitude": -0.3242492
+    },
+    "address": "59 The Broadway, London W13 9BP",
+    "neighbourhood": "West Ealing",
+    "city": "London"
+  },
+  {
+    "id": 32,
+    "name": "Oxfam – Ealing",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 6:00 PM",
+      "tuesday": "10:00 AM – 6:00 PM",
+      "wednesday": "10:00 AM – 6:00 PM",
+      "thursday": "10:00 AM – 6:00 PM",
+      "friday": "10:00 AM – 6:00 PM",
+      "saturday": "10:00 AM – 6:00 PM",
+      "sunday": "10:00 AM – 4:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.513141,
+      "longitude": -0.306802
+    },
+    "address": "34 New Broadway, London W5 2XA",
+    "neighbourhood": "Ealing",
+    "city": "London"
+  },
+  {
+    "id": 33,
+    "name": "Mind Ealing Green Charity Shop",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 6:00 PM",
+      "tuesday": "10:00 AM – 6:00 PM",
+      "wednesday": "10:00 AM – 6:00 PM",
+      "thursday": "10:00 AM – 6:00 PM",
+      "friday": "10:00 AM – 6:00 PM",
+      "saturday": "10:00 AM – 6:00 PM",
+      "sunday": "11:00 AM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5107818,
+      "longitude": -0.3052339
+    },
+    "address": "20 The Green, London W5 5DA",
+    "neighbourhood": "Ealing Green",
+    "city": "London"
+  },
+  {
+    "id": 34,
+    "name": "FARA Kids Charity Shop – Ealing",
+    "type": "Charity Shop (Children's)",
+    "opening_hours": {
+      "monday": "9:30 AM – 5:30 PM",
+      "tuesday": "9:30 AM – 5:30 PM",
+      "wednesday": "9:30 AM – 5:30 PM",
+      "thursday": "9:30 AM – 5:30 PM",
+      "friday": "9:30 AM – 5:30 PM",
+      "saturday": "9:30 AM – 5:30 PM",
+      "sunday": "9:30 AM – 5:30 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5108728,
+      "longitude": -0.3053076
+    },
+    "address": "18A The Green, London W5 5DA",
+    "neighbourhood": "Ealing Green",
+    "city": "London"
+  }
+]

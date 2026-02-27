@@ -1,0 +1,12 @@
+#root {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.shop-map .mapboxgl-ctrl-logo,
+.shop-map .mapboxgl-ctrl-attrib,
+.shop-map .mapboxgl-ctrl-bottom-right {
+  display: none !important;
+}

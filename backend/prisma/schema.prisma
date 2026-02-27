@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Shop {
+  id             Int      @id @default(autoincrement())
+  name           String
+  type           String
+  openingHours   Json
+  latitude       Float
+  longitude      Float
+  address        String
+  neighbourhood  String
+  city           String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  visitedBy      VisitedShop[]
+}
+
+model User {
+  id           Int           @id @default(autoincrement())
+  email        String        @unique
+  passwordHash String
+  name         String?
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  visitedShops VisitedShop[]
+}
+
+model VisitedShop {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  shopId    Int
+  visitedAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  shop Shop @relation(fields: [shopId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, shopId])
+}
+
