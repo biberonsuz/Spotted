@@ -53,7 +53,9 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   Shop: 'Shop',
   User: 'User',
-  VisitedShop: 'VisitedShop'
+  UserBrand: 'UserBrand',
+  VisitedShop: 'VisitedShop',
+  Spotted: 'Spotted'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -101,6 +103,16 @@ export const UserScalarFieldEnum = {
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
+export const UserBrandScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  name: 'name',
+  createdAt: 'createdAt'
+} as const
+
+export type UserBrandScalarFieldEnum = (typeof UserBrandScalarFieldEnum)[keyof typeof UserBrandScalarFieldEnum]
+
+
 export const VisitedShopScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
@@ -109,6 +121,19 @@ export const VisitedShopScalarFieldEnum = {
 } as const
 
 export type VisitedShopScalarFieldEnum = (typeof VisitedShopScalarFieldEnum)[keyof typeof VisitedShopScalarFieldEnum]
+
+
+export const SpottedScalarFieldEnum = {
+  id: 'id',
+  visitedShopId: 'visitedShopId',
+  imageUrl: 'imageUrl',
+  brand: 'brand',
+  clothingCategory: 'clothingCategory',
+  colour: 'colour',
+  createdAt: 'createdAt'
+} as const
+
+export type SpottedScalarFieldEnum = (typeof SpottedScalarFieldEnum)[keyof typeof SpottedScalarFieldEnum]
 
 
 export const SortOrder = {

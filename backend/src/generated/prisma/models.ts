@@ -10,5 +10,7 @@
  */
 export type * from './models/Shop'
 export type * from './models/User'
+export type * from './models/UserBrand'
 export type * from './models/VisitedShop'
+export type * from './models/Spotted'
 export type * from './commonInputTypes'

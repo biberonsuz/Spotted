@@ -218,6 +218,7 @@ export type VisitedShopWhereInput = {
   visitedAt?: Prisma.DateTimeFilter<"VisitedShop"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   shop?: Prisma.XOR<Prisma.ShopScalarRelationFilter, Prisma.ShopWhereInput>
+  spotteds?: Prisma.SpottedListRelationFilter
 }
 
 export type VisitedShopOrderByWithRelationInput = {
@@ -227,6 +228,7 @@ export type VisitedShopOrderByWithRelationInput = {
   visitedAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
   shop?: Prisma.ShopOrderByWithRelationInput
+  spotteds?: Prisma.SpottedOrderByRelationAggregateInput
 }
 
 export type VisitedShopWhereUniqueInput = Prisma.AtLeast<{
@@ -240,6 +242,7 @@ export type VisitedShopWhereUniqueInput = Prisma.AtLeast<{
   visitedAt?: Prisma.DateTimeFilter<"VisitedShop"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   shop?: Prisma.XOR<Prisma.ShopScalarRelationFilter, Prisma.ShopWhereInput>
+  spotteds?: Prisma.SpottedListRelationFilter
 }, "id" | "userId_shopId">
 
 export type VisitedShopOrderByWithAggregationInput = {
@@ -268,6 +271,7 @@ export type VisitedShopCreateInput = {
   visitedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutVisitedShopsInput
   shop: Prisma.ShopCreateNestedOneWithoutVisitedByInput
+  spotteds?: Prisma.SpottedCreateNestedManyWithoutVisitedShopInput
 }
 
 export type VisitedShopUncheckedCreateInput = {
@@ -275,12 +279,14 @@ export type VisitedShopUncheckedCreateInput = {
   userId: number
   shopId: number
   visitedAt?: Date | string
+  spotteds?: Prisma.SpottedUncheckedCreateNestedManyWithoutVisitedShopInput
 }
 
 export type VisitedShopUpdateInput = {
   visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutVisitedShopsNestedInput
   shop?: Prisma.ShopUpdateOneRequiredWithoutVisitedByNestedInput
+  spotteds?: Prisma.SpottedUpdateManyWithoutVisitedShopNestedInput
 }
 
 export type VisitedShopUncheckedUpdateInput = {
@@ -288,6 +294,7 @@ export type VisitedShopUncheckedUpdateInput = {
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   shopId?: Prisma.IntFieldUpdateOperationsInput | number
   visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  spotteds?: Prisma.SpottedUncheckedUpdateManyWithoutVisitedShopNestedInput
 }
 
 export type VisitedShopCreateManyInput = {
@@ -354,6 +361,11 @@ export type VisitedShopSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   shopId?: Prisma.SortOrder
+}
+
+export type VisitedShopScalarRelationFilter = {
+  is?: Prisma.VisitedShopWhereInput
+  isNot?: Prisma.VisitedShopWhereInput
 }
 
 export type VisitedShopCreateNestedManyWithoutShopInput = {
@@ -440,15 +452,31 @@ export type VisitedShopUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.VisitedShopScalarWhereInput | Prisma.VisitedShopScalarWhereInput[]
 }
 
+export type VisitedShopCreateNestedOneWithoutSpottedsInput = {
+  create?: Prisma.XOR<Prisma.VisitedShopCreateWithoutSpottedsInput, Prisma.VisitedShopUncheckedCreateWithoutSpottedsInput>
+  connectOrCreate?: Prisma.VisitedShopCreateOrConnectWithoutSpottedsInput
+  connect?: Prisma.VisitedShopWhereUniqueInput
+}
+
+export type VisitedShopUpdateOneRequiredWithoutSpottedsNestedInput = {
+  create?: Prisma.XOR<Prisma.VisitedShopCreateWithoutSpottedsInput, Prisma.VisitedShopUncheckedCreateWithoutSpottedsInput>
+  connectOrCreate?: Prisma.VisitedShopCreateOrConnectWithoutSpottedsInput
+  upsert?: Prisma.VisitedShopUpsertWithoutSpottedsInput
+  connect?: Prisma.VisitedShopWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.VisitedShopUpdateToOneWithWhereWithoutSpottedsInput, Prisma.VisitedShopUpdateWithoutSpottedsInput>, Prisma.VisitedShopUncheckedUpdateWithoutSpottedsInput>
+}
+
 export type VisitedShopCreateWithoutShopInput = {
   visitedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutVisitedShopsInput
+  spotteds?: Prisma.SpottedCreateNestedManyWithoutVisitedShopInput
 }
 
 export type VisitedShopUncheckedCreateWithoutShopInput = {
   id?: number
   userId: number
   visitedAt?: Date | string
+  spotteds?: Prisma.SpottedUncheckedCreateNestedManyWithoutVisitedShopInput
 }
 
 export type VisitedShopCreateOrConnectWithoutShopInput = {
@@ -490,12 +518,14 @@ export type VisitedShopScalarWhereInput = {
 export type VisitedShopCreateWithoutUserInput = {
   visitedAt?: Date | string
   shop: Prisma.ShopCreateNestedOneWithoutVisitedByInput
+  spotteds?: Prisma.SpottedCreateNestedManyWithoutVisitedShopInput
 }
 
 export type VisitedShopUncheckedCreateWithoutUserInput = {
   id?: number
   shopId: number
   visitedAt?: Date | string
+  spotteds?: Prisma.SpottedUncheckedCreateNestedManyWithoutVisitedShopInput
 }
 
 export type VisitedShopCreateOrConnectWithoutUserInput = {
@@ -524,6 +554,48 @@ export type VisitedShopUpdateManyWithWhereWithoutUserInput = {
   data: Prisma.XOR<Prisma.VisitedShopUpdateManyMutationInput, Prisma.VisitedShopUncheckedUpdateManyWithoutUserInput>
 }
 
+export type VisitedShopCreateWithoutSpottedsInput = {
+  visitedAt?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutVisitedShopsInput
+  shop: Prisma.ShopCreateNestedOneWithoutVisitedByInput
+}
+
+export type VisitedShopUncheckedCreateWithoutSpottedsInput = {
+  id?: number
+  userId: number
+  shopId: number
+  visitedAt?: Date | string
+}
+
+export type VisitedShopCreateOrConnectWithoutSpottedsInput = {
+  where: Prisma.VisitedShopWhereUniqueInput
+  create: Prisma.XOR<Prisma.VisitedShopCreateWithoutSpottedsInput, Prisma.VisitedShopUncheckedCreateWithoutSpottedsInput>
+}
+
+export type VisitedShopUpsertWithoutSpottedsInput = {
+  update: Prisma.XOR<Prisma.VisitedShopUpdateWithoutSpottedsInput, Prisma.VisitedShopUncheckedUpdateWithoutSpottedsInput>
+  create: Prisma.XOR<Prisma.VisitedShopCreateWithoutSpottedsInput, Prisma.VisitedShopUncheckedCreateWithoutSpottedsInput>
+  where?: Prisma.VisitedShopWhereInput
+}
+
+export type VisitedShopUpdateToOneWithWhereWithoutSpottedsInput = {
+  where?: Prisma.VisitedShopWhereInput
+  data: Prisma.XOR<Prisma.VisitedShopUpdateWithoutSpottedsInput, Prisma.VisitedShopUncheckedUpdateWithoutSpottedsInput>
+}
+
+export type VisitedShopUpdateWithoutSpottedsInput = {
+  visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutVisitedShopsNestedInput
+  shop?: Prisma.ShopUpdateOneRequiredWithoutVisitedByNestedInput
+}
+
+export type VisitedShopUncheckedUpdateWithoutSpottedsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
+  shopId?: Prisma.IntFieldUpdateOperationsInput | number
+  visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
 export type VisitedShopCreateManyShopInput = {
   id?: number
   userId: number
@@ -533,12 +605,14 @@ export type VisitedShopCreateManyShopInput = {
 export type VisitedShopUpdateWithoutShopInput = {
   visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutVisitedShopsNestedInput
+  spotteds?: Prisma.SpottedUpdateManyWithoutVisitedShopNestedInput
 }
 
 export type VisitedShopUncheckedUpdateWithoutShopInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  spotteds?: Prisma.SpottedUncheckedUpdateManyWithoutVisitedShopNestedInput
 }
 
 export type VisitedShopUncheckedUpdateManyWithoutShopInput = {
@@ -556,12 +630,14 @@ export type VisitedShopCreateManyUserInput = {
 export type VisitedShopUpdateWithoutUserInput = {
   visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   shop?: Prisma.ShopUpdateOneRequiredWithoutVisitedByNestedInput
+  spotteds?: Prisma.SpottedUpdateManyWithoutVisitedShopNestedInput
 }
 
 export type VisitedShopUncheckedUpdateWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   shopId?: Prisma.IntFieldUpdateOperationsInput | number
   visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  spotteds?: Prisma.SpottedUncheckedUpdateManyWithoutVisitedShopNestedInput
 }
 
 export type VisitedShopUncheckedUpdateManyWithoutUserInput = {
@@ -571,6 +647,35 @@ export type VisitedShopUncheckedUpdateManyWithoutUserInput = {
 }
 
 
+/**
+ * Count Type VisitedShopCountOutputType
+ */
+
+export type VisitedShopCountOutputType = {
+  spotteds: number
+}
+
+export type VisitedShopCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  spotteds?: boolean | VisitedShopCountOutputTypeCountSpottedsArgs
+}
+
+/**
+ * VisitedShopCountOutputType without action
+ */
+export type VisitedShopCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the VisitedShopCountOutputType
+   */
+  select?: Prisma.VisitedShopCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * VisitedShopCountOutputType without action
+ */
+export type VisitedShopCountOutputTypeCountSpottedsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SpottedWhereInput
+}
+
 
 export type VisitedShopSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -579,6 +684,8 @@ export type VisitedShopSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   visitedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   shop?: boolean | Prisma.ShopDefaultArgs<ExtArgs>
+  spotteds?: boolean | Prisma.VisitedShop$spottedsArgs<ExtArgs>
+  _count?: boolean | Prisma.VisitedShopCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["visitedShop"]>
 
 export type VisitedShopSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -610,6 +717,8 @@ export type VisitedShopOmit<ExtArgs extends runtime.Types.Extensions.InternalArg
 export type VisitedShopInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   shop?: boolean | Prisma.ShopDefaultArgs<ExtArgs>
+  spotteds?: boolean | Prisma.VisitedShop$spottedsArgs<ExtArgs>
+  _count?: boolean | Prisma.VisitedShopCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type VisitedShopIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -625,6 +734,7 @@ export type $VisitedShopPayload<ExtArgs extends runtime.Types.Extensions.Interna
   objects: {
     user: Prisma.$UserPayload<ExtArgs>
     shop: Prisma.$ShopPayload<ExtArgs>
+    spotteds: Prisma.$SpottedPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1027,6 +1137,7 @@ export interface Prisma__VisitedShopClient<T, Null = never, ExtArgs extends runt
   readonly [Symbol.toStringTag]: "PrismaPromise"
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   shop<T extends Prisma.ShopDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ShopDefaultArgs<ExtArgs>>): Prisma.Prisma__ShopClient<runtime.Types.Result.GetResult<Prisma.$ShopPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  spotteds<T extends Prisma.VisitedShop$spottedsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.VisitedShop$spottedsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SpottedPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1453,6 +1564,30 @@ export type VisitedShopDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.I
    * Limit how many VisitedShops to delete.
    */
   limit?: number
+}
+
+/**
+ * VisitedShop.spotteds
+ */
+export type VisitedShop$spottedsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Spotted
+   */
+  select?: Prisma.SpottedSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Spotted
+   */
+  omit?: Prisma.SpottedOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SpottedInclude<ExtArgs> | null
+  where?: Prisma.SpottedWhereInput
+  orderBy?: Prisma.SpottedOrderByWithRelationInput | Prisma.SpottedOrderByWithRelationInput[]
+  cursor?: Prisma.SpottedWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SpottedScalarFieldEnum | Prisma.SpottedScalarFieldEnum[]
 }
 
 /**

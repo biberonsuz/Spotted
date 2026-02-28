@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import Map, { Marker } from 'react-map-gl/mapbox'
 import 'mapbox-gl/dist/mapbox-gl.css'
@@ -53,6 +53,7 @@ export default function MapView() {
   }, [neighbourhoodParam, shops])
 
   const [viewState, setViewState] = useState(defaultViewState)
+  const animationFrameRef = useRef<number | null>(null)
 
   useEffect(() => {
     if (neighbourhoodCenter) {
@@ -69,6 +70,38 @@ export default function MapView() {
       }))
     }
   }, [neighbourhoodCenter, defaultViewState.longitude, defaultViewState.latitude])
+
+  useEffect(() => {
+    if (!activeSelectedShop) return
+    const targetLng = activeSelectedShop.coordinates.longitude
+    const targetLat = activeSelectedShop.coordinates.latitude
+    const duration = 1200
+    const startTime = performance.now()
+    const startLng = viewState.longitude
+    const startLat = viewState.latitude
+
+    const easeOutCubic = (t: number) => 1 - (1 - t) ** 3
+
+    const tick = (now: number) => {
+      const elapsed = now - startTime
+      const t = Math.min(elapsed / duration, 1)
+      const eased = easeOutCubic(t)
+      setViewState((prev) => ({
+        ...prev,
+        longitude: startLng + (targetLng - startLng) * eased,
+        latitude: startLat + (targetLat - startLat) * eased,
+      }))
+      if (t < 1) {
+        animationFrameRef.current = requestAnimationFrame(tick)
+      }
+    }
+    animationFrameRef.current = requestAnimationFrame(tick)
+    return () => {
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current)
+      }
+    }
+  }, [activeSelectedShop?.id])
 
   const closeModal = () => {
     setSelectedShop(null)
@@ -93,18 +126,17 @@ export default function MapView() {
           key={shop.name}
           longitude={shop.coordinates.longitude}
           latitude={shop.coordinates.latitude}
-          anchor="bottom"
+          anchor="center"
         >
-          <span
-            className="material-icons cursor-pointer text-blue-700 hover:text-blue-900 transition-colors"
-            style={{ fontSize: '28px' }}
+          <button
+            type="button"
+            className="w-5 h-5 rounded-full bg-blue-600 border border-gray-400 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.3),0_2px_4px_-2px_rgba(0,0,0,0.25)] cursor-pointer hover:scale-125 hover:bg-blue-700 transition-transform"
             onClick={(e) => {
               e.stopPropagation()
               setSelectedShop(shop)
             }}
-          >
-            place
-          </span>
+            aria-label={`View ${shop.name}`}
+          />
         </Marker>
       ))}
 

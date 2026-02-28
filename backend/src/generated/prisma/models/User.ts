@@ -225,6 +225,7 @@ export type UserWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   visitedShops?: Prisma.VisitedShopListRelationFilter
+  brands?: Prisma.UserBrandListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -235,6 +236,7 @@ export type UserOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   visitedShops?: Prisma.VisitedShopOrderByRelationAggregateInput
+  brands?: Prisma.UserBrandOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -248,6 +250,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   visitedShops?: Prisma.VisitedShopListRelationFilter
+  brands?: Prisma.UserBrandListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -283,6 +286,7 @@ export type UserCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   visitedShops?: Prisma.VisitedShopCreateNestedManyWithoutUserInput
+  brands?: Prisma.UserBrandCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -293,6 +297,7 @@ export type UserUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   visitedShops?: Prisma.VisitedShopUncheckedCreateNestedManyWithoutUserInput
+  brands?: Prisma.UserBrandUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -302,6 +307,7 @@ export type UserUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   visitedShops?: Prisma.VisitedShopUpdateManyWithoutUserNestedInput
+  brands?: Prisma.UserBrandUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -312,6 +318,7 @@ export type UserUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   visitedShops?: Prisma.VisitedShopUncheckedUpdateManyWithoutUserNestedInput
+  brands?: Prisma.UserBrandUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -384,6 +391,20 @@ export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
 }
 
+export type UserCreateNestedOneWithoutBrandsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutBrandsInput, Prisma.UserUncheckedCreateWithoutBrandsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutBrandsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutBrandsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutBrandsInput, Prisma.UserUncheckedCreateWithoutBrandsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutBrandsInput
+  upsert?: Prisma.UserUpsertWithoutBrandsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutBrandsInput, Prisma.UserUpdateWithoutBrandsInput>, Prisma.UserUncheckedUpdateWithoutBrandsInput>
+}
+
 export type UserCreateNestedOneWithoutVisitedShopsInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutVisitedShopsInput, Prisma.UserUncheckedCreateWithoutVisitedShopsInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutVisitedShopsInput
@@ -398,12 +419,67 @@ export type UserUpdateOneRequiredWithoutVisitedShopsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutVisitedShopsInput, Prisma.UserUpdateWithoutVisitedShopsInput>, Prisma.UserUncheckedUpdateWithoutVisitedShopsInput>
 }
 
+export type UserCreateWithoutBrandsInput = {
+  email: string
+  passwordHash: string
+  name?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  visitedShops?: Prisma.VisitedShopCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutBrandsInput = {
+  id?: number
+  email: string
+  passwordHash: string
+  name?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  visitedShops?: Prisma.VisitedShopUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutBrandsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutBrandsInput, Prisma.UserUncheckedCreateWithoutBrandsInput>
+}
+
+export type UserUpsertWithoutBrandsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutBrandsInput, Prisma.UserUncheckedUpdateWithoutBrandsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutBrandsInput, Prisma.UserUncheckedCreateWithoutBrandsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutBrandsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutBrandsInput, Prisma.UserUncheckedUpdateWithoutBrandsInput>
+}
+
+export type UserUpdateWithoutBrandsInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  visitedShops?: Prisma.VisitedShopUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutBrandsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  visitedShops?: Prisma.VisitedShopUncheckedUpdateManyWithoutUserNestedInput
+}
+
 export type UserCreateWithoutVisitedShopsInput = {
   email: string
   passwordHash: string
   name?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  brands?: Prisma.UserBrandCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutVisitedShopsInput = {
@@ -413,6 +489,7 @@ export type UserUncheckedCreateWithoutVisitedShopsInput = {
   name?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  brands?: Prisma.UserBrandUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutVisitedShopsInput = {
@@ -437,6 +514,7 @@ export type UserUpdateWithoutVisitedShopsInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  brands?: Prisma.UserBrandUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutVisitedShopsInput = {
@@ -446,6 +524,7 @@ export type UserUncheckedUpdateWithoutVisitedShopsInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  brands?: Prisma.UserBrandUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -455,10 +534,12 @@ export type UserUncheckedUpdateWithoutVisitedShopsInput = {
 
 export type UserCountOutputType = {
   visitedShops: number
+  brands: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   visitedShops?: boolean | UserCountOutputTypeCountVisitedShopsArgs
+  brands?: boolean | UserCountOutputTypeCountBrandsArgs
 }
 
 /**
@@ -478,6 +559,13 @@ export type UserCountOutputTypeCountVisitedShopsArgs<ExtArgs extends runtime.Typ
   where?: Prisma.VisitedShopWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountBrandsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.UserBrandWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -487,6 +575,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   createdAt?: boolean
   updatedAt?: boolean
   visitedShops?: boolean | Prisma.User$visitedShopsArgs<ExtArgs>
+  brands?: boolean | Prisma.User$brandsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -520,6 +609,7 @@ export type UserSelectScalar = {
 export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "passwordHash" | "name" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   visitedShops?: boolean | Prisma.User$visitedShopsArgs<ExtArgs>
+  brands?: boolean | Prisma.User$brandsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -529,6 +619,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   name: "User"
   objects: {
     visitedShops: Prisma.$VisitedShopPayload<ExtArgs>[]
+    brands: Prisma.$UserBrandPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -932,6 +1023,7 @@ readonly fields: UserFieldRefs;
 export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   visitedShops<T extends Prisma.User$visitedShopsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$visitedShopsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VisitedShopPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  brands<T extends Prisma.User$brandsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$brandsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserBrandPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1376,6 +1468,30 @@ export type User$visitedShopsArgs<ExtArgs extends runtime.Types.Extensions.Inter
   take?: number
   skip?: number
   distinct?: Prisma.VisitedShopScalarFieldEnum | Prisma.VisitedShopScalarFieldEnum[]
+}
+
+/**
+ * User.brands
+ */
+export type User$brandsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the UserBrand
+   */
+  select?: Prisma.UserBrandSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the UserBrand
+   */
+  omit?: Prisma.UserBrandOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserBrandInclude<ExtArgs> | null
+  where?: Prisma.UserBrandWhereInput
+  orderBy?: Prisma.UserBrandOrderByWithRelationInput | Prisma.UserBrandOrderByWithRelationInput[]
+  cursor?: Prisma.UserBrandWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.UserBrandScalarFieldEnum | Prisma.UserBrandScalarFieldEnum[]
 }
 
 /**

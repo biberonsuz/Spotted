@@ -59,7 +59,7 @@ export default function ShopCard({
 
   if (shopId != null) {
     return (
-      <Link to={`/shop/${shopId}`} className={`${className} block hover:opacity-95 transition-opacity`}>
+      <Link to={`/app/shop/${shopId}`} className={`${className} block hover:opacity-95 transition-opacity`}>
         {content}
       </Link>
     )

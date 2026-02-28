@@ -7,13 +7,15 @@ import Dropdown from "../ui/components/Dropdown";
 import ItemSpotted from "../ui/components/ItemSpotted";
 import ShopMap from "../ui/components/ShopMap";
 import type { Shop } from "../types/shop";
-import { getShop } from "../api/shops";
+import { getShop, getShopSpotteds } from "../api/shops";
+import type { ShopSpotted } from "../api/shops";
 import { useVisitedShops } from "../context/VisitedShopsContext";
 
 export default function ShopView() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [shop, setShop] = useState<Shop | null>(null);
+  const [spotteds, setSpotteds] = useState<ShopSpotted[]>([]);
   const [loading, setLoading] = useState(true);
   const { visitedIds, toggleVisited } = useVisitedShops();
 
@@ -25,13 +27,18 @@ export default function ShopView() {
     async function load() {
       try {
         setLoading(true);
-        const data = await getShop(Number(id));
+        const [shopData, spottedsData] = await Promise.all([
+          getShop(Number(id)),
+          getShopSpotteds(Number(id)),
+        ]);
         if (!cancelled) {
-          setShop(data);
+          setShop(shopData);
+          setSpotteds(spottedsData);
         }
       } catch {
         if (!cancelled) {
           setShop(null);
+          setSpotteds([]);
         }
       } finally {
         if (!cancelled) {
@@ -159,23 +166,18 @@ export default function ShopView() {
 
       <div>
         <h3 className="text-lg font-medium">Spotted Here</h3>
+        {spotteds.length === 0 && !loading && (
+          <p className="text-sm text-gray-500 mt-2">No items spotted at this shop yet.</p>
+        )}
         <div className="flex flex-nowrap gap-2 overflow-x-auto mt-3 md:grid md:grid-cols-4 md:overflow-visible">
-          {[
-            { brand: "Prada", clothingCategory: "Dress", itemColour: "Black" },
-            { brand: "COS", clothingCategory: "Jacket", itemColour: "Navy" },
-            { brand: "Levi's", clothingCategory: "Jeans", itemColour: "Blue" },
-            { brand: "Zara", clothingCategory: "Blazer", itemColour: "Grey" },
-            { brand: "Uniqlo", clothingCategory: "T-shirt", itemColour: "White" },
-            { brand: "Carhartt", clothingCategory: "Jacket", itemColour: "Brown" },
-            { brand: "Dickies", clothingCategory: "Work trousers", itemColour: "Beige" },
-            { brand: "& Other Stories", clothingCategory: "Coat", itemColour: "Camel" },
-          ].map((item, i) => (
+          {spotteds.map((item) => (
             <ItemSpotted
-              key={i}
-              brand={item.brand}
-              clothingCategory={item.clothingCategory}
-              itemColour={item.itemColour}
+              key={item.id}
+              brand={item.brand ?? undefined}
+              clothingCategory={item.clothingCategory ?? undefined}
+              itemColour={item.colour ?? undefined}
               hasImage
+              imageUrl={item.imageUrl}
             />
           ))}
         </div>

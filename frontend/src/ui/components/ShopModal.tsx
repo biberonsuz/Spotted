@@ -39,7 +39,7 @@ export default function ShopModal({
         className="w-full max-w-5xl m-4 flex flex-row overflow-hidden rounded-xl bg-white shadow-xl cursor-pointer"
         onClick={(e) => {
           e.stopPropagation()
-          navigate(`/shop/${shop.id}`)
+          navigate(`/app/shop/${shop.id}`)
         }}
       >
         <div className="flex-1 p-6">

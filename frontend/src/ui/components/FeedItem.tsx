@@ -26,6 +26,7 @@ export default function FeedItem({
     rating,
     neighbourhood,
     city,
+    date,
     children,
 }:{
     userName: string;
@@ -35,6 +36,7 @@ export default function FeedItem({
     rating?: number;
     neighbourhood?: string;
     city?: string;
+    date?: string;
     children?: React.ReactNode;
 }) {
     const navigate = useNavigate()
@@ -46,7 +48,7 @@ export default function FeedItem({
             <div className="shrink-0">
                 <Avatar />
             </div>
-            <div className="flex min-w-0 flex-col gap-4">
+            <div className="flex min-w-0 flex-1 flex-col gap-4">
                 <div className="flex flex-col">
                     <div className="flex min-w-0 flex-wrap items-center gap-2">
                         <span className="min-w-0 wrap-break-word">{userName} {description}</span>
@@ -69,6 +71,9 @@ export default function FeedItem({
                 </div>
                 {children}
             </div>
+            {date != null && date !== '' && (
+                <span className="shrink-0 text-sm text-gray-500 self-start pt-0.5">{date}</span>
+            )}
         </div>
     )
 }

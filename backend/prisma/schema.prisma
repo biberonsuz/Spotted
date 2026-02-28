@@ -20,7 +20,7 @@ model Shop {
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
 
-  visitedBy      VisitedShop[]
+  visitedBy VisitedShop[]
 }
 
 model User {
@@ -32,17 +32,44 @@ model User {
   updatedAt    DateTime      @updatedAt
 
   visitedShops VisitedShop[]
+  brands       UserBrand[]
+}
+
+model UserBrand {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  name      String   @db.VarChar(200)
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, name])
 }
 
 model VisitedShop {
-  id        Int      @id @default(autoincrement())
-  userId    Int
-  shopId    Int
-  visitedAt DateTime @default(now())
+  id              Int       @id @default(autoincrement())
+  userId          Int
+  shopId          Int
+  visitedAt       DateTime  @default(now())
+  rating          Float?    // personal ranking 0–10
+  ratingUpdatedAt DateTime? // when rating was last set/updated (for activity feed)
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  shop Shop @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  shop     Shop     @relation(fields: [shopId], references: [id], onDelete: Cascade)
+  spotteds Spotted[]
 
   @@unique([userId, shopId])
+}
+
+model Spotted {
+  id               Int      @id @default(autoincrement())
+  visitedShopId    Int
+  imageUrl         String?
+  brand            String?
+  clothingCategory String?
+  colour           String?
+  createdAt        DateTime @default(now())
+
+  visitedShop VisitedShop @relation(fields: [visitedShopId], references: [id], onDelete: Cascade)
 }
 

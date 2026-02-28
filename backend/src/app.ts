@@ -1,3 +1,4 @@
+import path from 'path'
 import express from 'express'
 import cors from 'cors'
 import shopsRouter from './routes/shops'
@@ -18,6 +19,9 @@ app.use(
   ),
 )
 app.use(express.json())
+
+const uploadsDir = path.join(__dirname, '..', 'uploads')
+app.use('/uploads', express.static(uploadsDir))
 
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok' })

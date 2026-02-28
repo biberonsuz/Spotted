@@ -28,7 +28,17 @@ export type Shop = Prisma.ShopModel
  */
 export type User = Prisma.UserModel
 /**
+ * Model UserBrand
+ * 
+ */
+export type UserBrand = Prisma.UserBrandModel
+/**
  * Model VisitedShop
  * 
  */
 export type VisitedShop = Prisma.VisitedShopModel
+/**
+ * Model Spotted
+ * 
+ */
+export type Spotted = Prisma.SpottedModel

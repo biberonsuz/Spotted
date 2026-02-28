@@ -1,0 +1,75 @@
+# Environment variables (keep .env.example for templates)
+.env
+.env.*
+!.env.example
+# Explicit: backend & frontend env files (above rules apply repo-wide)
+backend/.env
+frontend/.env
+# backend/.env.example and frontend/.env.example are kept via !.env.example
+
+# Dependencies
+node_modules/
+
+# Uploaded files (backend)
+backend/uploads/
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Vite
+frontend/dist/
+.vite/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime / cache
+.cache/
+.temp/
+.tmp/
+*.local
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+
+# IDE / editors (uncomment if you don't want to share)
+# .idea/
+# .vscode/
+# *.swp
+# *.swo
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Optional npm cache (optional, some teams ignore this)
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Prisma
+# Uncomment if you generate client to a custom path:
+# backend/node_modules/.prisma/
+
+# Debug
+.debug/
+
+# Misc
+*.pid
+*.seed
+*.pid.lock
+.env.backup
+.env.override
