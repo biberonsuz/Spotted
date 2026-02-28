@@ -754,5 +754,551 @@
     "address": "178D Brick Lane, London E1 6SA",
     "neighbourhood": "Brick Lane",
     "city": "London"
+  },
+  {
+    "id": 37,
+    "name": "Royal Trinity Hospice - Notting Hill shop",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 6:00 PM",
+      "tuesday": "10:00 AM – 6:00 PM",
+      "wednesday": "10:00 AM – 6:00 PM",
+      "thursday": "10:00 AM – 6:00 PM",
+      "friday": "10:00 AM – 6:00 PM",
+      "saturday": "10:00 AM – 6:00 PM",
+      "sunday": "11:00 AM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.509709,
+      "longitude": -0.1937
+    },
+    "address": "20 Notting Hill Gate, London W11 3JE",
+    "neighbourhood": "Notting Hill",
+    "city": "London"
+  },
+  {
+    "id": 38,
+    "name": "Fara Charity Shop",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 6:00 PM",
+      "tuesday": "10:00 AM – 6:00 PM",
+      "wednesday": "10:00 AM – 6:00 PM",
+      "thursday": "10:00 AM – 6:00 PM",
+      "friday": "10:00 AM – 6:00 PM",
+      "saturday": "10:00 AM – 6:00 PM",
+      "sunday": "10:00 AM – 6:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.515129,
+      "longitude": -0.205126
+    },
+    "address": "10 Elgin Crescent, London W11 2HX",
+    "neighbourhood": "Notting Hill",
+    "city": "London"
+  },
+  {
+    "id": 39,
+    "name": "Fight for Sight Portobello Road Charity Shop",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 5:00 PM",
+      "tuesday": "10:00 AM – 5:00 PM",
+      "wednesday": "10:00 AM – 5:00 PM",
+      "thursday": "10:00 AM – 5:00 PM",
+      "friday": "10:00 AM – 5:00 PM",
+      "saturday": "10:00 AM – 5:00 PM",
+      "sunday": "11:00 AM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.517014,
+      "longitude": -0.206109
+    },
+    "address": "235 Portobello Road, London W11 1LT",
+    "neighbourhood": "Notting Hill",
+    "city": "London"
+  },
+  {
+    "id": 40,
+    "name": "Oxfam Boutique - Westbourne Grove",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 6:00 PM",
+      "tuesday": "10:00 AM – 6:00 PM",
+      "wednesday": "10:00 AM – 6:00 PM",
+      "thursday": "10:00 AM – 6:00 PM",
+      "friday": "10:00 AM – 6:00 PM",
+      "saturday": "10:00 AM – 6:00 PM",
+      "sunday": "12:00 PM – 4:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.513974,
+      "longitude": -0.20112
+    },
+    "address": "245 Westbourne Grove, London W11 2SE",
+    "neighbourhood": "Notting Hill",
+    "city": "London"
+  },
+  {
+    "id": 41,
+    "name": "British Red Cross shop, Portobello Road",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 6:00 PM",
+      "tuesday": "10:00 AM – 6:00 PM",
+      "wednesday": "10:00 AM – 6:00 PM",
+      "thursday": "10:00 AM – 6:00 PM",
+      "friday": "10:00 AM – 6:00 PM",
+      "saturday": "10:00 AM – 6:00 PM",
+      "sunday": "12:00 PM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.515373,
+      "longitude": -0.204516
+    },
+    "address": "164 Portobello Road, London W11 2EB",
+    "neighbourhood": "Notting Hill",
+    "city": "London"
+  },
+  {
+    "id": 42,
+    "name": "Pepper Tree London Notting Hill",
+    "type": "Vintage Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 7:00 PM",
+      "tuesday": "10:00 AM – 7:00 PM",
+      "wednesday": "10:00 AM – 7:00 PM",
+      "thursday": "10:00 AM – 7:00 PM",
+      "friday": "10:00 AM – 7:00 PM",
+      "saturday": "10:00 AM – 7:00 PM",
+      "sunday": "10:00 AM – 7:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.510294,
+      "longitude": -0.197503
+    },
+    "address": "31 Pembridge Road, Notting Hill Gate, London W11 3HG",
+    "neighbourhood": "Notting Hill",
+    "city": "London"
+  },
+  {
+    "id": 43,
+    "name": "The House of Retro",
+    "type": "Vintage Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 6:00 PM",
+      "tuesday": "10:00 AM – 6:00 PM",
+      "wednesday": "10:00 AM – 6:00 PM",
+      "thursday": "10:00 AM – 6:00 PM",
+      "friday": "10:00 AM – 6:00 PM",
+      "saturday": "10:00 AM – 6:30 PM",
+      "sunday": "10:00 AM – 6:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.517348,
+      "longitude": -0.205957
+    },
+    "address": "232 Portobello Road, London W11 1LJ",
+    "neighbourhood": "Notting Hill",
+    "city": "London"
+  },
+  {
+    "id": 44,
+    "name": "Pepper Tree London",
+    "type": "Vintage Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 7:00 PM",
+      "tuesday": "10:00 AM – 7:00 PM",
+      "wednesday": "10:00 AM – 7:00 PM",
+      "thursday": "10:00 AM – 7:00 PM",
+      "friday": "10:00 AM – 7:00 PM",
+      "saturday": "10:00 AM – 7:00 PM",
+      "sunday": "10:00 AM – 6:30 PM"
+    },
+    "coordinates": {
+      "latitude": 51.517531,
+      "longitude": -0.206574
+    },
+    "address": "Unit 1, 253 Portobello Road, London W11 1LR",
+    "neighbourhood": "Notting Hill",
+    "city": "London"
+  },
+  {
+    "id": 45,
+    "name": "Y2K Vintage Notting Hill",
+    "type": "Vintage Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 6:00 PM",
+      "tuesday": "10:00 AM – 6:00 PM",
+      "wednesday": "10:00 AM – 6:00 PM",
+      "thursday": "10:00 AM – 6:00 PM",
+      "friday": "10:00 AM – 6:00 PM",
+      "saturday": "10:00 AM – 6:00 PM",
+      "sunday": "10:00 AM – 6:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.516371,
+      "longitude": -0.205503
+    },
+    "address": "217 Portobello Road, London W11 1LU",
+    "neighbourhood": "Notting Hill",
+    "city": "London"
+  },
+  {
+    "id": 46,
+    "name": "Lovers Lane London",
+    "type": "Vintage Shop",
+    "opening_hours": {
+      "monday": "11:00 AM – 6:30 PM",
+      "tuesday": "11:00 AM – 6:30 PM",
+      "wednesday": "11:00 AM – 6:30 PM",
+      "thursday": "11:00 AM – 6:30 PM",
+      "friday": "11:00 AM – 6:30 PM",
+      "saturday": "11:00 AM – 6:30 PM",
+      "sunday": "12:00 PM – 6:30 PM"
+    },
+    "coordinates": {
+      "latitude": 51.512664,
+      "longitude": -0.202145
+    },
+    "address": "77 Portobello Road, London W11 2QB",
+    "neighbourhood": "Notting Hill",
+    "city": "London"
+  },
+  {
+    "id": 47,
+    "name": "Shop from Crisis, Camden",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:30 AM – 6:30 PM",
+      "tuesday": "10:30 AM – 6:30 PM",
+      "wednesday": "10:30 AM – 6:30 PM",
+      "thursday": "10:30 AM – 6:30 PM",
+      "friday": "10:30 AM – 6:30 PM",
+      "saturday": "10:30 AM – 6:30 PM",
+      "sunday": "12:00 PM – 6:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.538682,
+      "longitude": -0.143894
+    },
+    "address": "22-24 Parkway, London NW1 7HL",
+    "neighbourhood": "Camden",
+    "city": "London"
+  },
+  {
+    "id": 48,
+    "name": "Traid Camden",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "11:00 AM – 7:00 PM",
+      "tuesday": "11:00 AM – 7:00 PM",
+      "wednesday": "11:00 AM – 7:00 PM",
+      "thursday": "11:00 AM – 7:00 PM",
+      "friday": "11:00 AM – 7:00 PM",
+      "saturday": "11:00 AM – 7:00 PM",
+      "sunday": "12:00 PM – 6:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.538602,
+      "longitude": -0.142081
+    },
+    "address": "154 Camden High Street, London NW1 0NE",
+    "neighbourhood": "Camden",
+    "city": "London"
+  },
+  {
+    "id": 49,
+    "name": "Give Me Love",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "Closed",
+      "tuesday": "11:00 AM – 6:00 PM",
+      "wednesday": "11:00 AM – 6:00 PM",
+      "thursday": "11:00 AM – 6:00 PM",
+      "friday": "11:00 AM – 6:00 PM",
+      "saturday": "11:00 AM – 6:00 PM",
+      "sunday": "Closed"
+    },
+    "coordinates": {
+      "latitude": 51.538324,
+      "longitude": -0.144041
+    },
+    "address": "29-31 Parkway, London NW1 7PN",
+    "neighbourhood": "Camden",
+    "city": "London"
+  },
+  {
+    "id": 50,
+    "name": "Camden Parkway Mind Shop",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:30 AM – 6:30 PM",
+      "tuesday": "10:30 AM – 6:30 PM",
+      "wednesday": "10:30 AM – 6:30 PM",
+      "thursday": "10:30 AM – 6:30 PM",
+      "friday": "10:30 AM – 6:30 PM",
+      "saturday": "10:30 AM – 6:30 PM",
+      "sunday": "11:00 AM – 5:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.538175,
+      "longitude": -0.144593
+    },
+    "address": "48 Parkway, London NW1 7AH",
+    "neighbourhood": "Camden",
+    "city": "London"
+  },
+  {
+    "id": 51,
+    "name": "Cancer Research UK",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 6:00 PM",
+      "tuesday": "10:00 AM – 6:00 PM",
+      "wednesday": "10:00 AM – 6:00 PM",
+      "thursday": "10:00 AM – 6:00 PM",
+      "friday": "10:00 AM – 6:00 PM",
+      "saturday": "10:00 AM – 6:00 PM",
+      "sunday": "12:00 PM – 6:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.536502,
+      "longitude": -0.140601
+    },
+    "address": "81 Camden High Street, London NW1 7JL",
+    "neighbourhood": "Camden",
+    "city": "London"
+  },
+  {
+    "id": 52,
+    "name": "Rokit Camden",
+    "type": "Vintage Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 6:00 PM",
+      "tuesday": "10:00 AM – 6:00 PM",
+      "wednesday": "10:00 AM – 6:00 PM",
+      "thursday": "10:00 AM – 6:00 PM",
+      "friday": "10:00 AM – 6:00 PM",
+      "saturday": "10:00 AM – 6:30 PM",
+      "sunday": "10:00 AM – 6:30 PM"
+    },
+    "coordinates": {
+      "latitude": 51.539871,
+      "longitude": -0.143699
+    },
+    "address": "225 Camden High Street, London NW1 7BU",
+    "neighbourhood": "Camden",
+    "city": "London"
+  },
+  {
+    "id": 53,
+    "name": "The Vintage Collection Arch 59",
+    "type": "Vintage Shop",
+    "opening_hours": {
+      "monday": "10:30 AM – 6:30 PM",
+      "tuesday": "10:30 AM – 6:30 PM",
+      "wednesday": "10:30 AM – 6:30 PM",
+      "thursday": "10:30 AM – 6:30 PM",
+      "friday": "10:30 AM – 7:00 PM",
+      "saturday": "10:30 AM – 7:00 PM",
+      "sunday": "10:30 AM – 7:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.542209,
+      "longitude": -0.148496
+    },
+    "address": "Arch 59, Camden Stables Market, North Yard, Saddle Row, Chalk Farm, London NW1 8AH",
+    "neighbourhood": "Camden",
+    "city": "London"
+  },
+  {
+    "id": 54,
+    "name": "camden vintage",
+    "type": "Vintage Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 7:00 PM",
+      "tuesday": "10:00 AM – 7:00 PM",
+      "wednesday": "10:00 AM – 7:00 PM",
+      "thursday": "10:00 AM – 7:00 PM",
+      "friday": "10:00 AM – 7:00 PM",
+      "saturday": "10:00 AM – 7:00 PM",
+      "sunday": "10:00 AM – 7:00 AM"
+    },
+    "coordinates": {
+      "latitude": 51.541125,
+      "longitude": -0.146129
+    },
+    "address": "Camden Lock Market, London NW1 8AF",
+    "neighbourhood": "Camden",
+    "city": "London"
+  },
+  {
+    "id": 55,
+    "name": "Collectif - Stables Market (Camden)",
+    "type": "Vintage Shop",
+    "opening_hours": {
+      "monday": "10:30 AM – 7:00 PM",
+      "tuesday": "10:30 AM – 7:00 PM",
+      "wednesday": "10:30 AM – 7:00 PM",
+      "thursday": "10:30 AM – 7:00 PM",
+      "friday": "10:00 AM – 7:00 PM",
+      "saturday": "10:00 AM – 7:00 PM",
+      "sunday": "10:00 AM – 7:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.542224,
+      "longitude": -0.146921
+    },
+    "address": "36 Camden's Stables Market, Chalk Farm Road, Chalk Farm, London NW1 8AH",
+    "neighbourhood": "Camden",
+    "city": "London"
+  },
+  {
+    "id": 56,
+    "name": "Oxfam Bethnal Green",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:30 AM – 5:30 PM",
+      "tuesday": "10:30 AM – 5:30 PM",
+      "wednesday": "10:30 AM – 5:30 PM",
+      "thursday": "10:30 AM – 5:30 PM",
+      "friday": "10:30 AM – 5:30 PM",
+      "saturday": "10:30 AM – 5:30 PM",
+      "sunday": "12:00 PM – 4:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.527098,
+      "longitude": -0.059927
+    },
+    "address": "397-399 Bethnal Green Road, Bethnal Green, London E2 0AN",
+    "neighbourhood": "Bethnal Green",
+    "city": "London"
+  },
+  {
+    "id": 57,
+    "name": "Ayoka",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "1:00 PM – 5:00 PM",
+      "tuesday": "10:00 AM – 5:00 PM",
+      "wednesday": "10:00 AM – 5:00 PM",
+      "thursday": "10:00 AM – 5:00 PM",
+      "friday": "10:00 AM – 5:00 PM",
+      "saturday": "10:00 AM – 5:00 PM",
+      "sunday": "10:00 AM – 4:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.52985,
+      "longitude": -0.054251
+    },
+    "address": "23 Old Ford Road, London E2 9PJ",
+    "neighbourhood": "Bethnal Green",
+    "city": "London"
+  },
+  {
+    "id": 58,
+    "name": "Lama's Pyjamas London",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "12:00 PM – 6:00 PM",
+      "tuesday": "12:00 PM – 6:00 PM",
+      "wednesday": "12:00 PM – 6:00 PM",
+      "thursday": "12:00 PM – 6:00 PM",
+      "friday": "12:00 PM – 6:00 PM",
+      "saturday": "10:30 AM – 5:30 PM",
+      "sunday": "Closed"
+    },
+    "coordinates": {
+      "latitude": 51.528416,
+      "longitude": -0.049972
+    },
+    "address": "83 Roman Road, Globe Town, London E2 0QN",
+    "neighbourhood": "Bethnal Green",
+    "city": "London"
+  },
+  {
+    "id": 59,
+    "name": "Top Ten",
+    "type": "Vintage Shop",
+    "opening_hours": {
+      "monday": "8:30 AM – 8:00 AM",
+      "tuesday": "8:30 AM – 8:00 AM",
+      "wednesday": "8:30 AM – 8:00 AM",
+      "thursday": "8:30 AM – 8:00 AM",
+      "friday": "8:30 AM – 8:00 AM",
+      "saturday": "8:30 AM – 8:00 AM",
+      "sunday": "9:00 AM – 7:30 PM"
+    },
+    "coordinates": {
+      "latitude": 51.526851,
+      "longitude": -0.059586
+    },
+    "address": "430 Bethnal Green Road, Bethnal Green, London E2",
+    "neighbourhood": "Bethnal Green",
+    "city": "London"
+  },
+  {
+    "id": 60,
+    "name": "House of Vintage UK",
+    "type": "Vintage Shop",
+    "opening_hours": {
+      "monday": "11:30 AM – 6:30 PM",
+      "tuesday": "11:30 AM – 6:30 PM",
+      "wednesday": "11:30 AM – 6:30 PM",
+      "thursday": "11:30 AM – 6:30 PM",
+      "friday": "11:30 AM – 6:30 PM",
+      "saturday": "11:30 AM – 6:30 PM",
+      "sunday": "11:00 AM – 6:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.523448,
+      "longitude": -0.071152
+    },
+    "address": "4 Cheshire Street, London E2 6EH",
+    "neighbourhood": "Bethnal Green",
+    "city": "London"
+  },
+  {
+    "id": 61,
+    "name": "Thrift Yard",
+    "type": "Vintage Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 7:00 PM",
+      "tuesday": "10:00 AM – 7:00 PM",
+      "wednesday": "10:00 AM – 7:00 PM",
+      "thursday": "10:00 AM – 7:00 PM",
+      "friday": "10:00 AM – 7:00 PM",
+      "saturday": "10:00 AM – 7:00 PM",
+      "sunday": "10:00 AM – 7:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.533222,
+      "longitude": -0.058104
+    },
+    "address": "Opposite The Theory Driving Test Center, Hare Row, London E2 9BY",
+    "neighbourhood": "Bethnal Green",
+    "city": "London"
+  },
+  {
+    "id": 62,
+    "name": "Islamic Relief Shop Whitechapel",
+    "type": "Charity Shop",
+    "opening_hours": {
+      "monday": "10:00 AM – 6:00 PM",
+      "tuesday": "10:00 AM – 6:00 PM",
+      "wednesday": "10:00 AM – 6:00 PM",
+      "thursday": "10:00 AM – 6:00 PM",
+      "friday": "10:00 AM – 6:00 PM",
+      "saturday": "11:00 AM – 5:30 PM",
+      "sunday": "11:00 AM – 5:30 PM"
+    },
+    "coordinates": {
+      "latitude": 51.517891,
+      "longitude": -0.065568
+    },
+    "address": "135-137 Whitechapel Road, London E1 1DT",
+    "neighbourhood": "Whitechapel",
+    "city": "London"
   }
 ]
