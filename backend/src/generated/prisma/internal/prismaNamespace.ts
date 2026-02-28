@@ -839,6 +839,8 @@ export const UserScalarFieldEnum = {
   email: 'email',
   passwordHash: 'passwordHash',
   name: 'name',
+  username: 'username',
+  avatarUrl: 'avatarUrl',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -860,7 +862,9 @@ export const VisitedShopScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
   shopId: 'shopId',
-  visitedAt: 'visitedAt'
+  visitedAt: 'visitedAt',
+  rating: 'rating',
+  ratingUpdatedAt: 'ratingUpdatedAt'
 } as const
 
 export type VisitedShopScalarFieldEnum = (typeof VisitedShopScalarFieldEnum)[keyof typeof VisitedShopScalarFieldEnum]

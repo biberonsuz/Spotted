@@ -44,7 +44,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     getMe()
       .then((me) => {
-        const userData = { id: me.id, email: me.email, name: me.name, createdAt: me.createdAt };
+        const userData = { id: me.id, email: me.email, name: me.name, username: me.username, avatarUrl: me.avatarUrl, createdAt: me.createdAt };
         setUser(userData);
         window.localStorage.setItem(USER_KEY, JSON.stringify(userData));
       })
@@ -87,7 +87,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (!t) return;
     try {
       const me = await getMe();
-      const userData = { id: me.id, email: me.email, name: me.name, createdAt: me.createdAt };
+      const userData = { id: me.id, email: me.email, name: me.name, username: me.username, avatarUrl: me.avatarUrl, createdAt: me.createdAt };
       setUser(userData);
       window.localStorage.setItem(USER_KEY, JSON.stringify(userData));
     } catch (err) {

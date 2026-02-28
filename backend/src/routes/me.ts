@@ -63,6 +63,21 @@ const createSpottedSchema = z.object({
   imageUrl: data.imageUrl && data.imageUrl.length > 0 ? data.imageUrl : undefined,
 }))
 
+const patchMeSchema = z.object({
+  name: z.string().min(0).max(200).optional(),
+  username: z
+    .string()
+    .min(2)
+    .max(50)
+    .regex(/^[a-zA-Z0-9_]+$/, 'Username can only contain letters, numbers and underscore')
+    .optional()
+    .nullable(),
+  avatarUrl: z.string().url().optional().nullable().or(z.literal('')),
+}).transform((data) => ({
+  ...data,
+  avatarUrl: data.avatarUrl && data.avatarUrl.length > 0 ? data.avatarUrl : null,
+}))
+
 router.get('/', requireAuth, async (req, res, next) => {
   try {
     const userId = req.userId!
@@ -72,6 +87,8 @@ router.get('/', requireAuth, async (req, res, next) => {
         id: true,
         email: true,
         name: true,
+        username: true,
+        avatarUrl: true,
         createdAt: true,
       },
     })
@@ -83,6 +100,45 @@ router.get('/', requireAuth, async (req, res, next) => {
 
     res.json(user)
   } catch (error) {
+    next(error)
+  }
+})
+
+router.patch('/', requireAuth, async (req, res, next) => {
+  try {
+    const userId = req.userId!
+    const parsed = patchMeSchema.parse(req.body)
+    if (parsed.username !== undefined && parsed.username !== null) {
+      const existing = await prisma.user.findFirst({
+        where: { username: parsed.username, id: { not: userId } },
+      })
+      if (existing) {
+        res.status(400).json({ error: 'Username is already taken' })
+        return
+      }
+    }
+    const user = await prisma.user.update({
+      where: { id: userId },
+      data: {
+        ...(parsed.name !== undefined && { name: parsed.name || null }),
+        ...(parsed.username !== undefined && { username: parsed.username }),
+        ...(parsed.avatarUrl !== undefined && { avatarUrl: parsed.avatarUrl }),
+      },
+      select: {
+        id: true,
+        email: true,
+        name: true,
+        username: true,
+        avatarUrl: true,
+        createdAt: true,
+      },
+    })
+    res.json(user)
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      res.status(400).json({ error: 'Invalid request', details: error.errors })
+      return
+    }
     next(error)
   }
 })
@@ -153,6 +209,14 @@ router.get('/activity', requireAuth, async (req, res, next) => {
           rating: number | null
         }
       | {
+          type: 'ranked'
+          visitId: number
+          shopId: number
+          shopName: string
+          rating: number
+          at: string
+        }
+      | {
           type: 'spotted'
           spottedId: number
           visitId: number
@@ -167,14 +231,26 @@ router.get('/activity', requireAuth, async (req, res, next) => {
 
     const activities: ActivityItem[] = []
     for (const v of visited) {
-      activities.push({
-        type: 'visit',
-        visitId: v.id,
-        shopId: v.shopId,
-        shopName: v.shop.name,
-        at: v.visitedAt.toISOString(),
-        rating: v.rating,
-      })
+      if (v.rating != null) {
+        const rankedAt = v.ratingUpdatedAt ?? v.visitedAt
+        activities.push({
+          type: 'ranked',
+          visitId: v.id,
+          shopId: v.shopId,
+          shopName: v.shop.name,
+          rating: v.rating,
+          at: rankedAt.toISOString(),
+        })
+      } else {
+        activities.push({
+          type: 'visit',
+          visitId: v.id,
+          shopId: v.shopId,
+          shopName: v.shop.name,
+          at: v.visitedAt.toISOString(),
+          rating: v.rating,
+        })
+      }
       for (const s of v.spotteds) {
         activities.push({
           type: 'spotted',
@@ -242,7 +318,7 @@ router.patch('/visited-shops/:visitId', requireAuth, async (req, res, next) => {
     }
     await prisma.visitedShop.update({
       where: { id: visitId },
-      data: { rating: parsed.rating },
+      data: { rating: parsed.rating, ratingUpdatedAt: new Date() },
     })
     const updated = await prisma.visitedShop.findUnique({
       where: { id: visitId },
@@ -270,7 +346,10 @@ router.post('/visited-shops', requireAuth, async (req, res, next) => {
       where: { userId_shopId: { userId, shopId: parsed.shopId } },
     })
     const isNewVisit = !visit
-    const ratingData = parsed.rating != null ? { rating: parsed.rating } : {}
+    const ratingData =
+      parsed.rating != null
+        ? { rating: parsed.rating, ratingUpdatedAt: new Date() }
+        : {}
     if (!visit) {
       visit = await prisma.visitedShop.create({
         data: {

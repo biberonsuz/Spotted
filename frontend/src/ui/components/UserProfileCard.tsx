@@ -5,15 +5,17 @@ export default function UserProfileCard({
     displayUsername,
     location = "London, UK",
     memberSince,
+    avatarUrl,
 }: {
     displayName: string
     displayUsername: string
     location?: string
     memberSince?: string | null
+    avatarUrl?: string | null
 }) {
     return (
         <div className="flex items-center gap-4">
-            <Avatar size="w-16 h-16" />
+            <Avatar size="w-16 h-16" imageUrl={avatarUrl} />
             <div>
                 <h2 className="text-xl font-semibold">
                     {displayName}{" "}

@@ -28,6 +28,8 @@ model User {
   email        String        @unique
   passwordHash String
   name         String?
+  username     String?       @unique @db.VarChar(50)
+  avatarUrl    String?
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
 

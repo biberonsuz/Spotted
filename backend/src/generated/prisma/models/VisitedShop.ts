@@ -30,12 +30,14 @@ export type VisitedShopAvgAggregateOutputType = {
   id: number | null
   userId: number | null
   shopId: number | null
+  rating: number | null
 }
 
 export type VisitedShopSumAggregateOutputType = {
   id: number | null
   userId: number | null
   shopId: number | null
+  rating: number | null
 }
 
 export type VisitedShopMinAggregateOutputType = {
@@ -43,6 +45,8 @@ export type VisitedShopMinAggregateOutputType = {
   userId: number | null
   shopId: number | null
   visitedAt: Date | null
+  rating: number | null
+  ratingUpdatedAt: Date | null
 }
 
 export type VisitedShopMaxAggregateOutputType = {
@@ -50,6 +54,8 @@ export type VisitedShopMaxAggregateOutputType = {
   userId: number | null
   shopId: number | null
   visitedAt: Date | null
+  rating: number | null
+  ratingUpdatedAt: Date | null
 }
 
 export type VisitedShopCountAggregateOutputType = {
@@ -57,6 +63,8 @@ export type VisitedShopCountAggregateOutputType = {
   userId: number
   shopId: number
   visitedAt: number
+  rating: number
+  ratingUpdatedAt: number
   _all: number
 }
 
@@ -65,12 +73,14 @@ export type VisitedShopAvgAggregateInputType = {
   id?: true
   userId?: true
   shopId?: true
+  rating?: true
 }
 
 export type VisitedShopSumAggregateInputType = {
   id?: true
   userId?: true
   shopId?: true
+  rating?: true
 }
 
 export type VisitedShopMinAggregateInputType = {
@@ -78,6 +88,8 @@ export type VisitedShopMinAggregateInputType = {
   userId?: true
   shopId?: true
   visitedAt?: true
+  rating?: true
+  ratingUpdatedAt?: true
 }
 
 export type VisitedShopMaxAggregateInputType = {
@@ -85,6 +97,8 @@ export type VisitedShopMaxAggregateInputType = {
   userId?: true
   shopId?: true
   visitedAt?: true
+  rating?: true
+  ratingUpdatedAt?: true
 }
 
 export type VisitedShopCountAggregateInputType = {
@@ -92,6 +106,8 @@ export type VisitedShopCountAggregateInputType = {
   userId?: true
   shopId?: true
   visitedAt?: true
+  rating?: true
+  ratingUpdatedAt?: true
   _all?: true
 }
 
@@ -186,6 +202,8 @@ export type VisitedShopGroupByOutputType = {
   userId: number
   shopId: number
   visitedAt: Date
+  rating: number | null
+  ratingUpdatedAt: Date | null
   _count: VisitedShopCountAggregateOutputType | null
   _avg: VisitedShopAvgAggregateOutputType | null
   _sum: VisitedShopSumAggregateOutputType | null
@@ -216,6 +234,8 @@ export type VisitedShopWhereInput = {
   userId?: Prisma.IntFilter<"VisitedShop"> | number
   shopId?: Prisma.IntFilter<"VisitedShop"> | number
   visitedAt?: Prisma.DateTimeFilter<"VisitedShop"> | Date | string
+  rating?: Prisma.FloatNullableFilter<"VisitedShop"> | number | null
+  ratingUpdatedAt?: Prisma.DateTimeNullableFilter<"VisitedShop"> | Date | string | null
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   shop?: Prisma.XOR<Prisma.ShopScalarRelationFilter, Prisma.ShopWhereInput>
   spotteds?: Prisma.SpottedListRelationFilter
@@ -226,6 +246,8 @@ export type VisitedShopOrderByWithRelationInput = {
   userId?: Prisma.SortOrder
   shopId?: Prisma.SortOrder
   visitedAt?: Prisma.SortOrder
+  rating?: Prisma.SortOrderInput | Prisma.SortOrder
+  ratingUpdatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
   shop?: Prisma.ShopOrderByWithRelationInput
   spotteds?: Prisma.SpottedOrderByRelationAggregateInput
@@ -240,6 +262,8 @@ export type VisitedShopWhereUniqueInput = Prisma.AtLeast<{
   userId?: Prisma.IntFilter<"VisitedShop"> | number
   shopId?: Prisma.IntFilter<"VisitedShop"> | number
   visitedAt?: Prisma.DateTimeFilter<"VisitedShop"> | Date | string
+  rating?: Prisma.FloatNullableFilter<"VisitedShop"> | number | null
+  ratingUpdatedAt?: Prisma.DateTimeNullableFilter<"VisitedShop"> | Date | string | null
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   shop?: Prisma.XOR<Prisma.ShopScalarRelationFilter, Prisma.ShopWhereInput>
   spotteds?: Prisma.SpottedListRelationFilter
@@ -250,6 +274,8 @@ export type VisitedShopOrderByWithAggregationInput = {
   userId?: Prisma.SortOrder
   shopId?: Prisma.SortOrder
   visitedAt?: Prisma.SortOrder
+  rating?: Prisma.SortOrderInput | Prisma.SortOrder
+  ratingUpdatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.VisitedShopCountOrderByAggregateInput
   _avg?: Prisma.VisitedShopAvgOrderByAggregateInput
   _max?: Prisma.VisitedShopMaxOrderByAggregateInput
@@ -265,10 +291,14 @@ export type VisitedShopScalarWhereWithAggregatesInput = {
   userId?: Prisma.IntWithAggregatesFilter<"VisitedShop"> | number
   shopId?: Prisma.IntWithAggregatesFilter<"VisitedShop"> | number
   visitedAt?: Prisma.DateTimeWithAggregatesFilter<"VisitedShop"> | Date | string
+  rating?: Prisma.FloatNullableWithAggregatesFilter<"VisitedShop"> | number | null
+  ratingUpdatedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"VisitedShop"> | Date | string | null
 }
 
 export type VisitedShopCreateInput = {
   visitedAt?: Date | string
+  rating?: number | null
+  ratingUpdatedAt?: Date | string | null
   user: Prisma.UserCreateNestedOneWithoutVisitedShopsInput
   shop: Prisma.ShopCreateNestedOneWithoutVisitedByInput
   spotteds?: Prisma.SpottedCreateNestedManyWithoutVisitedShopInput
@@ -279,11 +309,15 @@ export type VisitedShopUncheckedCreateInput = {
   userId: number
   shopId: number
   visitedAt?: Date | string
+  rating?: number | null
+  ratingUpdatedAt?: Date | string | null
   spotteds?: Prisma.SpottedUncheckedCreateNestedManyWithoutVisitedShopInput
 }
 
 export type VisitedShopUpdateInput = {
   visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  ratingUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutVisitedShopsNestedInput
   shop?: Prisma.ShopUpdateOneRequiredWithoutVisitedByNestedInput
   spotteds?: Prisma.SpottedUpdateManyWithoutVisitedShopNestedInput
@@ -294,6 +328,8 @@ export type VisitedShopUncheckedUpdateInput = {
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   shopId?: Prisma.IntFieldUpdateOperationsInput | number
   visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  ratingUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   spotteds?: Prisma.SpottedUncheckedUpdateManyWithoutVisitedShopNestedInput
 }
 
@@ -302,10 +338,14 @@ export type VisitedShopCreateManyInput = {
   userId: number
   shopId: number
   visitedAt?: Date | string
+  rating?: number | null
+  ratingUpdatedAt?: Date | string | null
 }
 
 export type VisitedShopUpdateManyMutationInput = {
   visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  ratingUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type VisitedShopUncheckedUpdateManyInput = {
@@ -313,6 +353,8 @@ export type VisitedShopUncheckedUpdateManyInput = {
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   shopId?: Prisma.IntFieldUpdateOperationsInput | number
   visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  ratingUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type VisitedShopListRelationFilter = {
@@ -335,12 +377,15 @@ export type VisitedShopCountOrderByAggregateInput = {
   userId?: Prisma.SortOrder
   shopId?: Prisma.SortOrder
   visitedAt?: Prisma.SortOrder
+  rating?: Prisma.SortOrder
+  ratingUpdatedAt?: Prisma.SortOrder
 }
 
 export type VisitedShopAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   shopId?: Prisma.SortOrder
+  rating?: Prisma.SortOrder
 }
 
 export type VisitedShopMaxOrderByAggregateInput = {
@@ -348,6 +393,8 @@ export type VisitedShopMaxOrderByAggregateInput = {
   userId?: Prisma.SortOrder
   shopId?: Prisma.SortOrder
   visitedAt?: Prisma.SortOrder
+  rating?: Prisma.SortOrder
+  ratingUpdatedAt?: Prisma.SortOrder
 }
 
 export type VisitedShopMinOrderByAggregateInput = {
@@ -355,12 +402,15 @@ export type VisitedShopMinOrderByAggregateInput = {
   userId?: Prisma.SortOrder
   shopId?: Prisma.SortOrder
   visitedAt?: Prisma.SortOrder
+  rating?: Prisma.SortOrder
+  ratingUpdatedAt?: Prisma.SortOrder
 }
 
 export type VisitedShopSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   shopId?: Prisma.SortOrder
+  rating?: Prisma.SortOrder
 }
 
 export type VisitedShopScalarRelationFilter = {
@@ -452,6 +502,18 @@ export type VisitedShopUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.VisitedShopScalarWhereInput | Prisma.VisitedShopScalarWhereInput[]
 }
 
+export type NullableFloatFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
+export type NullableDateTimeFieldUpdateOperationsInput = {
+  set?: Date | string | null
+}
+
 export type VisitedShopCreateNestedOneWithoutSpottedsInput = {
   create?: Prisma.XOR<Prisma.VisitedShopCreateWithoutSpottedsInput, Prisma.VisitedShopUncheckedCreateWithoutSpottedsInput>
   connectOrCreate?: Prisma.VisitedShopCreateOrConnectWithoutSpottedsInput
@@ -468,6 +530,8 @@ export type VisitedShopUpdateOneRequiredWithoutSpottedsNestedInput = {
 
 export type VisitedShopCreateWithoutShopInput = {
   visitedAt?: Date | string
+  rating?: number | null
+  ratingUpdatedAt?: Date | string | null
   user: Prisma.UserCreateNestedOneWithoutVisitedShopsInput
   spotteds?: Prisma.SpottedCreateNestedManyWithoutVisitedShopInput
 }
@@ -476,6 +540,8 @@ export type VisitedShopUncheckedCreateWithoutShopInput = {
   id?: number
   userId: number
   visitedAt?: Date | string
+  rating?: number | null
+  ratingUpdatedAt?: Date | string | null
   spotteds?: Prisma.SpottedUncheckedCreateNestedManyWithoutVisitedShopInput
 }
 
@@ -513,10 +579,14 @@ export type VisitedShopScalarWhereInput = {
   userId?: Prisma.IntFilter<"VisitedShop"> | number
   shopId?: Prisma.IntFilter<"VisitedShop"> | number
   visitedAt?: Prisma.DateTimeFilter<"VisitedShop"> | Date | string
+  rating?: Prisma.FloatNullableFilter<"VisitedShop"> | number | null
+  ratingUpdatedAt?: Prisma.DateTimeNullableFilter<"VisitedShop"> | Date | string | null
 }
 
 export type VisitedShopCreateWithoutUserInput = {
   visitedAt?: Date | string
+  rating?: number | null
+  ratingUpdatedAt?: Date | string | null
   shop: Prisma.ShopCreateNestedOneWithoutVisitedByInput
   spotteds?: Prisma.SpottedCreateNestedManyWithoutVisitedShopInput
 }
@@ -525,6 +595,8 @@ export type VisitedShopUncheckedCreateWithoutUserInput = {
   id?: number
   shopId: number
   visitedAt?: Date | string
+  rating?: number | null
+  ratingUpdatedAt?: Date | string | null
   spotteds?: Prisma.SpottedUncheckedCreateNestedManyWithoutVisitedShopInput
 }
 
@@ -556,6 +628,8 @@ export type VisitedShopUpdateManyWithWhereWithoutUserInput = {
 
 export type VisitedShopCreateWithoutSpottedsInput = {
   visitedAt?: Date | string
+  rating?: number | null
+  ratingUpdatedAt?: Date | string | null
   user: Prisma.UserCreateNestedOneWithoutVisitedShopsInput
   shop: Prisma.ShopCreateNestedOneWithoutVisitedByInput
 }
@@ -565,6 +639,8 @@ export type VisitedShopUncheckedCreateWithoutSpottedsInput = {
   userId: number
   shopId: number
   visitedAt?: Date | string
+  rating?: number | null
+  ratingUpdatedAt?: Date | string | null
 }
 
 export type VisitedShopCreateOrConnectWithoutSpottedsInput = {
@@ -585,6 +661,8 @@ export type VisitedShopUpdateToOneWithWhereWithoutSpottedsInput = {
 
 export type VisitedShopUpdateWithoutSpottedsInput = {
   visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  ratingUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutVisitedShopsNestedInput
   shop?: Prisma.ShopUpdateOneRequiredWithoutVisitedByNestedInput
 }
@@ -594,16 +672,22 @@ export type VisitedShopUncheckedUpdateWithoutSpottedsInput = {
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   shopId?: Prisma.IntFieldUpdateOperationsInput | number
   visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  ratingUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type VisitedShopCreateManyShopInput = {
   id?: number
   userId: number
   visitedAt?: Date | string
+  rating?: number | null
+  ratingUpdatedAt?: Date | string | null
 }
 
 export type VisitedShopUpdateWithoutShopInput = {
   visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  ratingUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   user?: Prisma.UserUpdateOneRequiredWithoutVisitedShopsNestedInput
   spotteds?: Prisma.SpottedUpdateManyWithoutVisitedShopNestedInput
 }
@@ -612,6 +696,8 @@ export type VisitedShopUncheckedUpdateWithoutShopInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  ratingUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   spotteds?: Prisma.SpottedUncheckedUpdateManyWithoutVisitedShopNestedInput
 }
 
@@ -619,16 +705,22 @@ export type VisitedShopUncheckedUpdateManyWithoutShopInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  ratingUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type VisitedShopCreateManyUserInput = {
   id?: number
   shopId: number
   visitedAt?: Date | string
+  rating?: number | null
+  ratingUpdatedAt?: Date | string | null
 }
 
 export type VisitedShopUpdateWithoutUserInput = {
   visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  ratingUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   shop?: Prisma.ShopUpdateOneRequiredWithoutVisitedByNestedInput
   spotteds?: Prisma.SpottedUpdateManyWithoutVisitedShopNestedInput
 }
@@ -637,6 +729,8 @@ export type VisitedShopUncheckedUpdateWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   shopId?: Prisma.IntFieldUpdateOperationsInput | number
   visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  ratingUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   spotteds?: Prisma.SpottedUncheckedUpdateManyWithoutVisitedShopNestedInput
 }
 
@@ -644,6 +738,8 @@ export type VisitedShopUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   shopId?: Prisma.IntFieldUpdateOperationsInput | number
   visitedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  rating?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  ratingUpdatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 
@@ -682,6 +778,8 @@ export type VisitedShopSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   userId?: boolean
   shopId?: boolean
   visitedAt?: boolean
+  rating?: boolean
+  ratingUpdatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   shop?: boolean | Prisma.ShopDefaultArgs<ExtArgs>
   spotteds?: boolean | Prisma.VisitedShop$spottedsArgs<ExtArgs>
@@ -693,6 +791,8 @@ export type VisitedShopSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   userId?: boolean
   shopId?: boolean
   visitedAt?: boolean
+  rating?: boolean
+  ratingUpdatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   shop?: boolean | Prisma.ShopDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["visitedShop"]>
@@ -702,6 +802,8 @@ export type VisitedShopSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   userId?: boolean
   shopId?: boolean
   visitedAt?: boolean
+  rating?: boolean
+  ratingUpdatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   shop?: boolean | Prisma.ShopDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["visitedShop"]>
@@ -711,9 +813,11 @@ export type VisitedShopSelectScalar = {
   userId?: boolean
   shopId?: boolean
   visitedAt?: boolean
+  rating?: boolean
+  ratingUpdatedAt?: boolean
 }
 
-export type VisitedShopOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "shopId" | "visitedAt", ExtArgs["result"]["visitedShop"]>
+export type VisitedShopOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "shopId" | "visitedAt" | "rating" | "ratingUpdatedAt", ExtArgs["result"]["visitedShop"]>
 export type VisitedShopInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   shop?: boolean | Prisma.ShopDefaultArgs<ExtArgs>
@@ -741,6 +845,8 @@ export type $VisitedShopPayload<ExtArgs extends runtime.Types.Extensions.Interna
     userId: number
     shopId: number
     visitedAt: Date
+    rating: number | null
+    ratingUpdatedAt: Date | null
   }, ExtArgs["result"]["visitedShop"]>
   composites: {}
 }
@@ -1171,6 +1277,8 @@ export interface VisitedShopFieldRefs {
   readonly userId: Prisma.FieldRef<"VisitedShop", 'Int'>
   readonly shopId: Prisma.FieldRef<"VisitedShop", 'Int'>
   readonly visitedAt: Prisma.FieldRef<"VisitedShop", 'DateTime'>
+  readonly rating: Prisma.FieldRef<"VisitedShop", 'Float'>
+  readonly ratingUpdatedAt: Prisma.FieldRef<"VisitedShop", 'DateTime'>
 }
     
 

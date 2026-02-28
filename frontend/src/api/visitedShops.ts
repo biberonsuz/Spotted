@@ -41,6 +41,14 @@ export type ActivityItem =
       rating: number | null
     }
   | {
+      type: 'ranked'
+      visitId: number
+      shopId: number
+      shopName: string
+      rating: number
+      at: string
+    }
+  | {
       type: 'spotted'
       spottedId: number
       visitId: number

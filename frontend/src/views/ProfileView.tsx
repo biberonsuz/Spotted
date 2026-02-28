@@ -7,8 +7,36 @@ import ItemSpotted from "../ui/components/ItemSpotted"
 import { useShops } from "../hooks/useShops"
 import { useVisitedShops } from "../context/VisitedShopsContext"
 import { useCurrentUser } from "../hooks/useCurrentUser"
+import { useMemo } from "react"
 import { getActivity, type ActivityItem } from "../api/visitedShops"
 import { getBrands } from "../api/me"
+
+type SpottedActivityItem = Extract<ActivityItem, { type: 'spotted' }>
+
+type GroupedActivityItem =
+  | Extract<ActivityItem, { type: 'visit' | 'ranked' }>
+  | { type: 'spotted_group'; shopId: number; shopName: string; at: string; items: SpottedActivityItem[] }
+
+function groupActivityByShop(activity: ActivityItem[]): GroupedActivityItem[] {
+  const visitAndRanked: GroupedActivityItem[] = []
+  const spottedsByShop = new Map<number, SpottedActivityItem[]>()
+  for (const item of activity) {
+    if (item.type === 'visit' || item.type === 'ranked') {
+      visitAndRanked.push(item)
+    } else {
+      const list = spottedsByShop.get(item.shopId) ?? []
+      list.push(item)
+      spottedsByShop.set(item.shopId, list)
+    }
+  }
+  const grouped: GroupedActivityItem[] = [...visitAndRanked]
+  for (const [shopId, items] of spottedsByShop) {
+    const latest = items.reduce((a, b) => (a.at >= b.at ? a : b))
+    grouped.push({ type: 'spotted_group', shopId, shopName: latest.shopName, at: latest.at, items })
+  }
+  grouped.sort((a, b) => new Date(b.at).getTime() - new Date(a.at).getTime())
+  return grouped
+}
 
 export default function ProfileView({
     name: nameProp,
@@ -54,8 +82,11 @@ export default function ProfileView({
         return () => { cancelled = true }
     }, [user?.id, brandsProp])
 
+    const groupedActivity = useMemo(() => groupActivityByShop(activity), [activity])
+
     const displayName = user?.name ?? user?.email ?? nameProp ?? 'You'
-    const displayUsername = user?.email ? user.email.replace(/@.*/, '') : usernameProp ?? 'user'
+    const displayUsername =
+        user?.username ?? (user?.email ? user.email.replace(/@.*/, '') : undefined) ?? usernameProp ?? 'user'
     const memberSince = user?.createdAt
         ? new Date(user.createdAt).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })
         : null
@@ -67,6 +98,7 @@ export default function ProfileView({
                     displayName={displayName}
                     displayUsername={displayUsername}
                     memberSince={memberSince}
+                    avatarUrl={user?.avatarUrl}
                 />
                 <Link
                     to="/app/settings"
@@ -171,13 +203,19 @@ export default function ProfileView({
                 <h3 className="text-lg font-medium">Your recent activity</h3>
                 {activityLoading ? (
                     <p className="mt-2 text-sm text-gray-500">Loading…</p>
-                ) : activity.length === 0 ? (
+                ) : groupedActivity.length === 0 ? (
                     <p className="mt-2 text-sm text-gray-500">No activity yet. Add a visit or a spotted to see it here.</p>
                 ) : (
                     <>
-                        {activity.map((item) => (
+                        {groupedActivity.map((item) => (
                             <ActivityFeedItem
-                                key={item.type === 'visit' ? `v-${item.visitId}` : `s-${item.spottedId}`}
+                                key={
+                                    item.type === 'visit'
+                                        ? `v-${item.visitId}`
+                                        : item.type === 'ranked'
+                                          ? `r-${item.visitId}`
+                                          : `sg-${item.shopId}`
+                                }
                                 item={item}
                                 displayName={displayName}
                                 neighbourhood={shops?.find((s) => s.id === item.shopId)?.neighbourhood}
@@ -211,7 +249,7 @@ function ActivityFeedItem({
     neighbourhood,
     city,
 }: {
-    item: ActivityItem
+    item: GroupedActivityItem
     displayName: string
     neighbourhood?: string
     city?: string
@@ -231,25 +269,44 @@ function ActivityFeedItem({
             />
         )
     }
-    const items = [{ brand: item.brand ?? undefined, clothingCategory: item.clothingCategory ?? undefined }]
+    if (item.type === 'ranked') {
+        return (
+            <FeedItem
+                userName={displayName}
+                action="ranked"
+                shopName={item.shopName}
+                rating={item.rating}
+                neighbourhood={neighbourhood}
+                city={city}
+                date={dateStr}
+            />
+        )
+    }
+    const feedItems = item.items.map((s) => ({
+        brand: s.brand ?? undefined,
+        clothingCategory: s.clothingCategory ?? undefined,
+    }))
     return (
         <FeedItem
             userName={displayName}
             action="spotted"
             shopName={item.shopName}
-            items={items}
+            items={feedItems}
             neighbourhood={neighbourhood}
             city={city}
             date={dateStr}
         >
             <div className="flex flex-nowrap gap-3 overflow-x-auto md:flex-wrap md:overflow-visible">
-                <ItemSpotted
-                    brand={item.brand ?? undefined}
-                    clothingCategory={item.clothingCategory ?? undefined}
-                    itemColour={item.colour ?? undefined}
-                    hasImage={!!item.imageUrl}
-                    imageUrl={item.imageUrl ?? undefined}
-                />
+                {item.items.map((s) => (
+                    <ItemSpotted
+                        key={s.spottedId}
+                        brand={s.brand ?? undefined}
+                        clothingCategory={s.clothingCategory ?? undefined}
+                        itemColour={s.colour ?? undefined}
+                        hasImage={!!s.imageUrl}
+                        imageUrl={s.imageUrl ?? undefined}
+                    />
+                ))}
             </div>
         </FeedItem>
     )

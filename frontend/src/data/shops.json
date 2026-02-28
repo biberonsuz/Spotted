@@ -733,5 +733,26 @@
     "address": "2 The Green, London W5 5DA",
     "neighbourhood": "Ealing",
     "city": "London"
+  },
+  {
+    "id": 36,
+    "name": "194Local",
+    "type": "Clothing Store",
+    "opening_hours": {
+      "monday": "11:00 AM – 7:00 PM",
+      "tuesday": "11:00 AM – 7:00 PM",
+      "wednesday": "11:00 AM – 7:00 PM",
+      "thursday": "11:00 AM – 7:00 PM",
+      "friday": "11:00 AM – 7:00 PM",
+      "saturday": "11:00 AM – 7:00 PM",
+      "sunday": "11:00 AM – 7:00 PM"
+    },
+    "coordinates": {
+      "latitude": 51.5232074,
+      "longitude": -0.0713776
+    },
+    "address": "178D Brick Lane, London E1 6SA",
+    "neighbourhood": "Brick Lane",
+    "city": "London"
   }
 ]
