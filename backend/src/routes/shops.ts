@@ -9,7 +9,7 @@ const router = Router()
 const createShopSchema = z.object({
   name: z.string().min(1).max(200),
   type: z.string().min(1).max(100),
-  opening_hours: z.record(z.string()).default({}),
+  opening_hours: z.record(z.string(), z.string()).default({}),
   coordinates: z.object({
     latitude: z.number(),
     longitude: z.number(),
@@ -56,7 +56,7 @@ router.post('/', requireAuth, async (req, res, next) => {
       data: {
         name: parsed.name,
         type: parsed.type,
-        openingHours: parsed.opening_hours,
+        openingHours: parsed.opening_hours as any,
         latitude: parsed.coordinates.latitude,
         longitude: parsed.coordinates.longitude,
         address: parsed.address,
@@ -67,7 +67,7 @@ router.post('/', requireAuth, async (req, res, next) => {
     res.status(201).json(toApiShop(shop))
   } catch (error) {
     if (error instanceof z.ZodError) {
-      res.status(400).json({ error: 'Invalid request', details: error.errors })
+      res.status(400).json({ error: 'Invalid request', details: error.issues })
       return
     }
     next(error)
@@ -96,7 +96,7 @@ router.post('/bulk', requireAuth, async (req, res, next) => {
     res.status(201).json(created)
   } catch (error) {
     if (error instanceof z.ZodError) {
-      res.status(400).json({ error: 'Invalid request', details: error.errors })
+      res.status(400).json({ error: 'Invalid request', details: error.issues })
       return
     }
     next(error)

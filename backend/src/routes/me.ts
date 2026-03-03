@@ -11,7 +11,7 @@ router.post(
   '/upload',
   requireAuth,
   uploadSingle.single('file'),
-  (req, res, next) => {
+  (req: express.Request, res: express.Response, next: express.NextFunction) => {
     if (!req.file) {
       res.status(400).json({ error: 'No file uploaded' })
       return
@@ -39,7 +39,7 @@ const spottedItemSchema = z.object({
   colour: z.string().max(50).optional(),
 }).transform((data) => ({
   ...data,
-  imageUrl: data.imageUrl && data.imageUrl.length > 0 ? data.imageUrl : undefined,
+  imageUrl: data.imageUrl && data.imageUrl.length > 0 ? data.imageUrl : null,
 }))
 
 const createVisitWithSpottedsSchema = z.object({
@@ -60,7 +60,7 @@ const createSpottedSchema = z.object({
   colour: z.string().max(50).optional(),
 }).transform((data) => ({
   ...data,
-  imageUrl: data.imageUrl && data.imageUrl.length > 0 ? data.imageUrl : undefined,
+  imageUrl: data.imageUrl && data.imageUrl.length > 0 ? data.imageUrl : null,
 }))
 
 const patchMeSchema = z.object({
@@ -136,7 +136,7 @@ router.patch('/', requireAuth, async (req, res, next) => {
     res.json(user)
   } catch (error) {
     if (error instanceof z.ZodError) {
-      res.status(400).json({ error: 'Invalid request', details: error.errors })
+      res.status(400).json({ error: 'Invalid request', details: error.issues })
       return
     }
     next(error)
@@ -180,7 +180,7 @@ router.put('/brands', requireAuth, async (req, res, next) => {
     res.json(rows.map((r) => r.name))
   } catch (error) {
     if (error instanceof z.ZodError) {
-      res.status(400).json({ error: 'Invalid request', details: error.errors })
+      res.status(400).json({ error: 'Invalid request', details: error.issues })
       return
     }
     next(error)
@@ -331,7 +331,7 @@ router.patch('/visited-shops/:visitId', requireAuth, async (req, res, next) => {
     })
   } catch (error) {
     if (error instanceof z.ZodError) {
-      res.status(400).json({ error: 'Invalid request', details: error.errors })
+      res.status(400).json({ error: 'Invalid request', details: error.issues })
       return
     }
     next(error)
@@ -370,9 +370,9 @@ router.post('/visited-shops', requireAuth, async (req, res, next) => {
           data: {
             visitedShopId: visit!.id,
             imageUrl: item.imageUrl,
-            brand: item.brand,
-            clothingCategory: item.clothingCategory,
-            colour: item.colour,
+            brand: item.brand ?? null,
+            clothingCategory: item.clothingCategory ?? null,
+            colour: item.colour ?? null,
           },
         }),
       ),
@@ -395,7 +395,7 @@ router.post('/visited-shops', requireAuth, async (req, res, next) => {
     })
   } catch (error) {
     if (error instanceof z.ZodError) {
-      res.status(400).json({ error: 'Invalid request', details: error.errors })
+      res.status(400).json({ error: 'Invalid request', details: error.issues })
       return
     }
     next(error)
@@ -452,9 +452,9 @@ router.post('/spotted', requireAuth, async (req, res, next) => {
       data: {
         visitedShopId: parsed.visitedShopId,
         imageUrl: parsed.imageUrl,
-        brand: parsed.brand,
-        clothingCategory: parsed.clothingCategory,
-        colour: parsed.colour,
+        brand: parsed.brand ?? null,
+        clothingCategory: parsed.clothingCategory ?? null,
+        colour: parsed.colour ?? null,
       },
     })
     res.status(201).json({
@@ -468,7 +468,7 @@ router.post('/spotted', requireAuth, async (req, res, next) => {
     })
   } catch (error) {
     if (error instanceof z.ZodError) {
-      res.status(400).json({ error: 'Invalid request', details: error.errors })
+      res.status(400).json({ error: 'Invalid request', details: error.issues })
       return
     }
     next(error)

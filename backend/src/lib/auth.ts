@@ -1,6 +1,10 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-import type { User } from '../generated/prisma'
+
+type JwtUser = {
+  id: number
+  email: string
+}
 
 const JWT_SECRET = process.env.JWT_SECRET
 
@@ -17,18 +21,18 @@ export async function verifyPassword(password: string, hash: string) {
   return bcrypt.compare(password, hash)
 }
 
-export function generateToken(user: User) {
+export function generateToken(user: JwtUser) {
   return jwt.sign(
     {
       sub: user.id,
       email: user.email,
     },
-    JWT_SECRET,
+    JWT_SECRET as string,
     { expiresIn: '7d' },
   )
 }
 
 export function verifyToken(token: string) {
-  return jwt.verify(token, JWT_SECRET) as { sub: number; email: string }
+  return jwt.verify(token, JWT_SECRET as string) as unknown as { sub: number; email: string }
 }
 

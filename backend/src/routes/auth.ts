@@ -29,7 +29,7 @@ router.post('/register', async (req, res, next) => {
       data: {
         email: parsed.email,
         passwordHash,
-        name: parsed.name,
+        name: parsed.name ?? null,
       },
     })
 
@@ -46,7 +46,7 @@ router.post('/register', async (req, res, next) => {
     })
   } catch (error) {
     if (error instanceof z.ZodError) {
-      res.status(400).json({ error: 'Invalid request', details: error.errors })
+      res.status(400).json({ error: 'Invalid request', details: error.issues })
       return
     }
     next(error)
@@ -85,7 +85,7 @@ router.post('/login', async (req, res, next) => {
     })
   } catch (error) {
     if (error instanceof z.ZodError) {
-      res.status(400).json({ error: 'Invalid request', details: error.errors })
+      res.status(400).json({ error: 'Invalid request', details: error.issues })
       return
     }
     next(error)
