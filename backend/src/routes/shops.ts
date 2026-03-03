@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import type { Request, Response, NextFunction } from 'express'
 import { z } from 'zod'
 import { prisma } from '../lib/prisma'
 import { requireAuth } from '../middleware/auth'
@@ -49,7 +50,7 @@ const bulkCreateSchema = z.object({
   shops: z.array(createShopSchema).min(1).max(100),
 })
 
-router.post('/', requireAuth, async (req, res, next) => {
+router.post('/', requireAuth, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const parsed = createShopSchema.parse(req.body)
     const shop = await prisma.shop.create({
@@ -74,7 +75,7 @@ router.post('/', requireAuth, async (req, res, next) => {
   }
 })
 
-router.post('/bulk', requireAuth, async (req, res, next) => {
+router.post('/bulk', requireAuth, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const parsed = bulkCreateSchema.parse(req.body)
     const created: ReturnType<typeof toApiShop>[] = []
@@ -103,7 +104,7 @@ router.post('/bulk', requireAuth, async (req, res, next) => {
   }
 })
 
-router.get('/', async (_req, res, next) => {
+router.get('/', async (_req: Request, res: Response, next: NextFunction) => {
   try {
     const shops = await prisma.shop.findMany({
       orderBy: [{ city: 'asc' }, { neighbourhood: 'asc' }, { name: 'asc' }],
@@ -115,7 +116,7 @@ router.get('/', async (_req, res, next) => {
 })
 
 // Spotteds for this shop from all users (no auth or user filter)
-router.get('/:id/spotteds', async (req, res, next) => {
+router.get('/:id/spotteds', async (req: Request, res: Response, next: NextFunction) => {
   try {
     const shopId = Number(req.params.id)
     if (Number.isNaN(shopId)) {
@@ -143,7 +144,7 @@ router.get('/:id/spotteds', async (req, res, next) => {
   }
 })
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
   try {
     const id = Number(req.params.id)
     if (Number.isNaN(id)) {

@@ -1,5 +1,6 @@
 import path from 'path'
 import express, { Router } from 'express'
+import type { Request, Response, NextFunction } from 'express'
 import { z } from 'zod'
 import { prisma } from '../lib/prisma'
 import { requireAuth } from '../middleware/auth'
@@ -78,7 +79,7 @@ const patchMeSchema = z.object({
   avatarUrl: data.avatarUrl && data.avatarUrl.length > 0 ? data.avatarUrl : null,
 }))
 
-router.get('/', requireAuth, async (req, res, next) => {
+router.get('/', requireAuth, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const userId = req.userId!
     const user = await prisma.user.findUnique({
@@ -104,7 +105,7 @@ router.get('/', requireAuth, async (req, res, next) => {
   }
 })
 
-router.patch('/', requireAuth, async (req, res, next) => {
+router.patch('/', requireAuth, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const userId = req.userId!
     const parsed = patchMeSchema.parse(req.body)
@@ -147,7 +148,7 @@ const putBrandsSchema = z.object({
   brands: z.array(z.string().min(1).max(200)).max(200),
 })
 
-router.get('/brands', requireAuth, async (req, res, next) => {
+router.get('/brands', requireAuth, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const userId = req.userId!
     const rows = await prisma.userBrand.findMany({
@@ -161,7 +162,7 @@ router.get('/brands', requireAuth, async (req, res, next) => {
   }
 })
 
-router.put('/brands', requireAuth, async (req, res, next) => {
+router.put('/brands', requireAuth, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const userId = req.userId!
     const parsed = putBrandsSchema.parse(req.body)
@@ -187,7 +188,7 @@ router.put('/brands', requireAuth, async (req, res, next) => {
   }
 })
 
-router.get('/activity', requireAuth, async (req, res, next) => {
+router.get('/activity', requireAuth, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const userId = req.userId!
     const limit = Math.min(Number(req.query.limit) || 20, 50)
@@ -274,7 +275,7 @@ router.get('/activity', requireAuth, async (req, res, next) => {
   }
 })
 
-router.get('/visited-shops', requireAuth, async (req, res, next) => {
+router.get('/visited-shops', requireAuth, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const userId = req.userId!
 
@@ -300,7 +301,10 @@ router.get('/visited-shops', requireAuth, async (req, res, next) => {
   }
 })
 
-router.patch('/visited-shops/:visitId', requireAuth, async (req, res, next) => {
+router.patch(
+  '/visited-shops/:visitId',
+  requireAuth,
+  async (req: Request, res: Response, next: NextFunction) => {
   try {
     const userId = req.userId!
     const visitId = Number(req.params.visitId)
@@ -338,7 +342,7 @@ router.patch('/visited-shops/:visitId', requireAuth, async (req, res, next) => {
   }
 })
 
-router.post('/visited-shops', requireAuth, async (req, res, next) => {
+router.post('/visited-shops', requireAuth, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const userId = req.userId!
     const parsed = createVisitWithSpottedsSchema.parse(req.body)
@@ -402,7 +406,10 @@ router.post('/visited-shops', requireAuth, async (req, res, next) => {
   }
 })
 
-router.post('/visited-shops/:shopId/toggle', requireAuth, async (req, res, next) => {
+router.post(
+  '/visited-shops/:shopId/toggle',
+  requireAuth,
+  async (req: Request, res: Response, next: NextFunction) => {
   try {
     const userId = req.userId!
     const shopId = Number(req.params.shopId)
@@ -437,7 +444,7 @@ router.post('/visited-shops/:shopId/toggle', requireAuth, async (req, res, next)
   }
 })
 
-router.post('/spotted', requireAuth, async (req, res, next) => {
+router.post('/spotted', requireAuth, async (req: Request, res: Response, next: NextFunction) => {
   try {
     const userId = req.userId!
     const parsed = createSpottedSchema.parse(req.body)
